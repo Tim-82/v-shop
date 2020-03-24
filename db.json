@@ -1,0 +1,52 @@
+{
+  "products": [
+    {
+      "image": "1.png",
+      "name": "Gain Bolic 6000",
+      "price": 3090,
+      "article": "T1",
+      "available": true,
+      "rating": 4
+    },
+    {
+      "image": "2.png",
+      "name": "Mass Effect Revolution",
+      "price": 3150.12312412,
+      "article": "T2",
+      "available": true,
+      "rating": 5
+    },
+    {
+      "image": "3.png",
+      "name": "Pro Gainer",
+      "price": 4090.51524,
+      "article": "T3",
+      "available": false,
+      "rating": 5
+    },
+    {
+      "image": "4.png",
+      "name": "100% Whey Gold Standard",
+      "price": 2090.1245512,
+      "article": "T4",
+      "available": true,
+      "rating": 5
+    },
+    {
+      "image": "5.png",
+      "name": "Протеин Whey 100",
+      "price": 3990.3522314,
+      "article": "T5",
+      "available": false,
+      "rating": 4
+    },
+    {
+      "image": "6.png",
+      "name": "100% Casein Protein",
+      "price": 5690.4124123,
+      "article": "T6",
+      "available": true,
+      "rating": 5
+    }
+  ]
+}
