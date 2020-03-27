@@ -32,7 +32,7 @@ export default {
       return myProduct.rating - s >= 0
     },
     addToCart () {
-      // this.$emit(event:'sendArticle', this.product_data.article)
+      this.$emit('addToCart', this.product_data)
     }
   }
 }

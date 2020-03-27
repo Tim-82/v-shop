@@ -1,20 +1,28 @@
 <template>
   <div class="main-wpapper">
     <Catalog/>
+    <Cart
+      v-if="CART.length"
+      :cart_data="CART"
+    />
   </div>
 </template>
 
 <script>
 import Catalog from './Catalog'
-// import Cart from './components/Cart'
+import Cart from './Cart'
+import { mapGetters } from 'vuex'
 
 export default {
   name: 'main-wpapper',
-  components: { Catalog },
+  components: { Catalog, Cart },
   props: {},
   data () {
     return {
     }
+  },
+  computed: {
+    ...mapGetters(['CART'])
   }
 }
 </script>
