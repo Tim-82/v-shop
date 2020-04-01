@@ -1,5 +1,12 @@
 <template>
   <div class="catalog">
+    <router-link
+      :to="{
+        name: 'cart',
+        params: {cart_data: CART}}"
+    >
+      <div class="catalog_link_to_cart">Cart: {{CART.length}}</div>
+    </router-link>
     <div class="catalog-list">
        <CatalogItem
         v-for="product in PRODUCTS"
@@ -24,7 +31,10 @@ export default {
     }
   },
   computed: {
-    ...mapGetters(['PRODUCTS'])
+    ...mapGetters([
+      'PRODUCTS',
+      'CART'
+    ])
   },
   methods: {
     ...mapActions([
@@ -47,5 +57,12 @@ export default {
     flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
+  }
+  .catalog_link_to_cart {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    padding: $padding*2;
+    border: solid 1px #aeaeae;
   }
 </style>

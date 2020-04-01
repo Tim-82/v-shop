@@ -1,29 +1,29 @@
 <template>
   <div class="main-wpapper">
-    <Catalog/>
+    <keep-alive>
+      <router-view />
+    </keep-alive>
+    <!-- <Catalog/>
     <Cart
       v-if="CART.length"
       :cart_data="CART"
-    />
+    /> -->
   </div>
 </template>
 
 <script>
-import Catalog from './Catalog'
-import Cart from './Cart'
-import { mapGetters } from 'vuex'
+// import Catalog from './Catalog'
+// import Cart from './Cart'
 
 export default {
   name: 'main-wpapper',
-  components: { Catalog, Cart },
+  // components: { Catalog, Cart },
   props: {},
   data () {
     return {
     }
   },
-  computed: {
-    ...mapGetters(['CART'])
-  }
+  computed: {}
 }
 </script>
 
