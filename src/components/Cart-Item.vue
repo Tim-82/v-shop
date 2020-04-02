@@ -8,7 +8,9 @@
     </div>
     <div class="cart-item-quantity">
       <p>Qty:</p>
-      {{cart_item_data.quantity}}
+      <span>-</span>
+        {{cart_item_data.quantity}}
+      <span>+</span>
     </div>
     <button @click="deleteFromCart">Delete</button>
   </div>
