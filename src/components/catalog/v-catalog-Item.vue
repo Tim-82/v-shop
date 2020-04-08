@@ -1,7 +1,7 @@
 <template>
   <div class="catalog-item">
     <div class="image">
-      <img :src=" require('../assets/images/' + product_data.image) " alt="">
+      <img :src=" require('../../assets/images/' + product_data.image) " alt="">
       <p class="catalog-item__name">{{product_data.name}}</p>
       <p class="catalog-item__price">Price: {{product_data.price}} P</p>
       <span

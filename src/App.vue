@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import MainWrapper from './components/MainWrapper'
+import MainWrapper from './components/v-main-wrapper'
 export default {
   name: 'app',
   components: {

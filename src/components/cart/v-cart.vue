@@ -21,7 +21,7 @@
 </template>
 
 <script>
-import CartItem from './Cart-Item'
+import CartItem from './v-cart-Item'
 import { mapActions } from 'vuex'
 
 export default {
@@ -62,10 +62,10 @@ export default {
       'DECREMENT_CART_ITEM'
     ]),
     increment (index) {
-      this.INCREMENT_CART_ITEM (index)
+      this.INCREMENT_CART_ITEM(index)
     },
     decrement (index) {
-      this.DECREMENT_CART_ITEM (index)
+      this.DECREMENT_CART_ITEM(index)
     },
     deleteFromCart (index) {
       this.DELETE_FROM_CART(index)
