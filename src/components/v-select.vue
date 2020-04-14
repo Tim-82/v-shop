@@ -1,5 +1,5 @@
 <template>
-  <div class="select">
+  <div class="select"  v-if="expanded">
     <p
       class="title"
       @click="OptionsVisible = !OptionsVisible"

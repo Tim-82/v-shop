@@ -8,6 +8,8 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
+    mobile: false,
+    desktop: true,
     products: [],
     cart: []
   },

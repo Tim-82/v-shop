@@ -29,5 +29,13 @@ export default {
     if (state.cart[index].quantity > 1) {
       state.cart[index].quantity--
     }
+  },
+  SWITCH_MOBILE: (state) => {
+    state.mobile = true
+    state.desktop = false
+  },
+  SWITCH_DESKTOP: (state) => {
+    state.mobile = false
+    state.desktop = true
   }
 }
