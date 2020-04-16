@@ -29,10 +29,10 @@ export default {
     window.addEventListener('load', function () {
       if (window.innerWidth > 767) {
         context.SET_DESKTOP()
-        console.log(context.DESKTOP)
+        // console.log(context.DESKTOP)
       } else {
         context.SET_MOBILE()
-        console.log(context.MOBILE)
+        // console.log(context.MOBILE)
       }
     })
   }

@@ -18,7 +18,7 @@
         <input
           type="range"
           min="0"
-          max="5000"
+          max="6000"
           step="10"
           v-model.number="minPrice"
           @change="setRangeSlider"
@@ -26,7 +26,7 @@
         <input
           type="range"
           min="0"
-          max="5000"
+          max="6000"
           step="10"
           v-model.number="maxPrice"
           @change="setRangeSlider"
@@ -70,7 +70,7 @@ export default {
       selected: 'All',
       sortedProducts: [],
       minPrice: 0,
-      maxPrice: 1000
+      maxPrice: 6000
     }
   },
   computed: {
@@ -98,7 +98,7 @@ export default {
     setRangeSlider () {
       if (this.minPrice > this.maxPrice) {
         const tmp = this.maxPrice
-        this.maxPrice = this.mixPrice
+        this.maxPrice = this.minPrice
         this.minPrice = tmp
       }
       this.sortByCategories()
@@ -111,14 +111,30 @@ export default {
       })
       if (category) {
         this.sortedProducts = this.sortedProducts.filter(function (e) {
-          vm.selected === category.name
+          vm.selected = category.name
           return e.category === category.name
         })
       }
     }
+    // sortByCategories (category) { -----FOR-single-Select---)
+    //   this.sortedProducts = []
+    //   let vm = this
+    //   this.PRODUCTS.map(function (item) {
+    //     if( item.category === category.name) {
+    //       vm.sortedProducts.push(item)
+    //     }
+    //   })
+    //   this.selected = category.name
+    // }
   },
   mounted () {
     this.GET_PRODUCTS_FROM_API()
+      .then((responce) => {
+        if (responce.data) {
+          console.log('Data arrived')
+          this.sortByCategories()
+        }
+      })
   }
 }
 </script>
