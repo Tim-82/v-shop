@@ -15,7 +15,7 @@
     />
     <div class="cart_total">
       <p class="total_name">Total:</p>
-      <p>{{ cartTotalCost }} $</p>
+      <p>{{ cartTotalCost | filter|  priceFormat }} </p>
     </div>
   </div>
 </template>
@@ -23,6 +23,8 @@
 <script>
 import CartItem from './v-cart-Item'
 import { mapActions } from 'vuex'
+import filter from '../filters/filter'
+import priceFormat from '../filters/price-format'
 
 export default {
   name: 'cart',
@@ -37,6 +39,10 @@ export default {
   },
   data () {
     return {}
+  },
+  filters: {
+    filter,
+    priceFormat
   },
   computed: {
     cartTotalCost () {

@@ -3,7 +3,7 @@
     <img class="cart_item_image" :src=" require('../../assets/images/' + cart_item_data.image) " alt="">
     <div class="cart_item_info">
       <p>{{cart_item_data.name}}</p>
-      <p>{{cart_item_data.price}}</p>
+      <p>{{cart_item_data.price | filter |  priceFormat}}</p>
       <p>{{cart_item_data.article}}</p>
     </div>
     <div class="cart-item-quantity">
@@ -17,6 +17,9 @@
 </template>
 
 <script>
+import filter from '../filters/filter'
+import priceFormat from '../filters/price-format'
+
 export default {
   name: 'cart-item',
   props: {
@@ -29,6 +32,10 @@ export default {
   },
   data () {
     return {}
+  },
+  filters: {
+    filter,
+    priceFormat
   },
   computed: {},
   methods: {

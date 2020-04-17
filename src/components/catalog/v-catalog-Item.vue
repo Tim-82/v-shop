@@ -9,14 +9,14 @@
       <img class="catalog-item__image" :src=" require('../../assets/images/' + product_data.image) " alt="img">
       <div>
         <p class="catalog-item-name">{{product_data.name}}</p>
-        <p class="catalog-item-price">Price: {{product_data.price | toFix | formattedPrice}} Р.</p>
+        <p class="catalog-item-price">Price: {{product_data.price | filter |  priceFormat}} Р.</p>
         <p class="catalog-item-price">{{product_data.category}}</p>
       </div>
     </Popup>
     <div class="image">
       <img :src=" require('../../assets/images/' + product_data.image) " alt="">
       <p class="catalog-item__name">{{product_data.name}}</p>
-      <p class="catalog-item__price">Price: {{product_data.price}} P</p>
+      <p class="catalog-item__price">Price: {{product_data.price | filter | priceFormat}} </p>
       <span
         :class="{'rating-active' :checkRating(star, product_data)}"
         v-for="star in 5"
@@ -37,6 +37,9 @@
 
 <script>
 import Popup from '../popup/v-popup'
+import filter from '../filters/filter'
+import priceFormat from '../filters/price-format'
+
 export default {
   name: 'catalog-item',
   components: { Popup },
@@ -52,6 +55,10 @@ export default {
     return {
       infoPopupVisible: false
     }
+  },
+  filters: {
+    filter,
+    priceFormat
   },
   methods: {
     checkRating (s, myProduct) {
