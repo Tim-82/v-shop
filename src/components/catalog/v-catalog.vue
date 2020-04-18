@@ -77,7 +77,8 @@ export default {
     ...mapGetters([
       'PRODUCTS',
       'CART',
-      'DESKTOP'
+      'DESKTOP',
+      'SEARCH_VALUE'
     ]),
     filteredProducts () {
       if (this.sortedProducts.length) {
@@ -115,7 +116,7 @@ export default {
           return e.category === category.name
         })
       }
-    }
+    },
     // sortByCategories (category) { -----FOR-single-Select---)
     //   this.sortedProducts = []
     //   let vm = this
@@ -126,6 +127,14 @@ export default {
     //   })
     //   this.selected = category.name
     // }
+    sortedProductsBySearchValue (valeu) {
+
+    }
+  },
+  watch: {
+    SEARCH_VALUE () {
+      this.sortedProductsBySearchValue(this.SEARCH_VALUE)
+    }
   },
   mounted () {
     this.GET_PRODUCTS_FROM_API()

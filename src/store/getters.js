@@ -1,14 +1,17 @@
 export default {
-  MOBILE(state) {
-    return state.mobile;
+  MOBILE (state) {
+    return state.mobile
   },
-  DESKTOP(state) {
-    return state.desktop;
+  DESKTOP (state) {
+    return state.desktop
   },
   PRODUCTS (state) {
     return state.products
   },
   CART (state) {
     return state.cart
+  },
+  SEARCH_VALUE (state) {
+    return state.searchValue
   }
 }

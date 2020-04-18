@@ -1,5 +1,6 @@
 <template>
   <div class="main-wpapper">
+    <Header/>
     <keep-alive>
       <router-view />
     </keep-alive>
@@ -13,11 +14,11 @@
 
 <script>
 // import Catalog from './Catalog'
-// import Cart from './Cart'
+import Header from './v-header'
 
 export default {
   name: 'main-wpapper',
-  // components: { Catalog, Cart },
+  components: { Header },
   props: {},
   data () {
     return {

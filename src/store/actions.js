@@ -29,5 +29,8 @@ export default {
   },
   SET_DESKTOP ({ commit }) {
     commit('SWITCH_DESKTOP')
+  },
+  SET_SEARCH_VALUE ({ commit }, value) {
+    commit('SET_SEARCH', value)
   }
 }

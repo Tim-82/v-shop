@@ -37,5 +37,8 @@ export default {
   SWITCH_DESKTOP: (state) => {
     state.mobile = false
     state.desktop = true
+  },
+  SET_SEARCH: (state, value) => {
+    state.searchValue = value
   }
 }
