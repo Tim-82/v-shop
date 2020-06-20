@@ -1,12 +1,12 @@
 <template>
   <div class="catalog">
-    <router-link
+    <!-- <router-link
       :to="{
         name: 'cart',
         params: {cart_data: CART}}"
     >
       <div class="catalog_link_to_cart">Cart: {{CART.length}}</div>
-    </router-link>
+    </router-link> -->
     <div class="filters">
       <Select
         :selected="selected"
@@ -37,27 +37,32 @@
         <p>Max: {{ maxPrice }}</p>
       </div>
     </div>
-    <div class="catalog-list">
-       <CatalogItem
-        v-for="product in filteredProducts"
-        :key="product.article"
-        :product_data="product"
+    <!-- <div class="catalog-list"> -->
+        <!-- v-for="product in filteredProducts"
+        :key="product.article" -->
+       <!-- <CatalogItem
+        :product_data="PRODUCTS"
         @addToCart="addToCart"
-       />
-    </div>
+       /> -->
+      <!-- <div class="catalog-list"> -->
+        <CatalogItem
+          :product_data="PRODUCTS"
+          @addToCart="addToCart"
+        />
+      <!-- </div> -->
   </div>
 </template>
 
 <script>
 import CatalogItem from './v-catalog-Item'
 import { mapActions, mapGetters } from 'vuex'
-import Select from '../v-select.vue'
+// import Select from '../v-select.vue'
 
 export default {
   name: 'Catalog',
   components: {
-    CatalogItem,
-    Select
+    CatalogItem
+    // Select
   },
   props: {},
   data () {
@@ -67,6 +72,7 @@ export default {
         { name: 'Man', value: 'm' },
         { name: 'Woman', value: 'w' }
       ],
+      // test: this.PRODUCTS,
       selected: 'All',
       sortedProducts: [],
       minPrice: 0,
@@ -76,7 +82,7 @@ export default {
   computed: {
     ...mapGetters([
       'PRODUCTS',
-      'CART',
+      // 'CART',
       'DESKTOP',
       'SEARCH_VALUE'
     ]),
@@ -127,8 +133,15 @@ export default {
     //   })
     //   this.selected = category.name
     // }
-    sortedProductsBySearchValue (valeu) {
-
+    sortedProductsBySearchValue (value) {
+      this.sortedProducts = [...this.PRODUCTS]
+      if (value) {
+        this.sortedProducts = this.sortedProducts.filter(function (item) {
+          return item.name.toLowerCase().includes(value.toLowerCase())
+        })
+      } else {
+        this.sortedProducts = this.PRODUCTS
+      }
     }
   },
   watch: {
@@ -140,26 +153,26 @@ export default {
     this.GET_PRODUCTS_FROM_API()
       .then((responce) => {
         if (responce.data) {
-          console.log('Data arrived')
+          // console.log('Data arrived')
           this.sortByCategories()
+          this.sortedProductsBySearchValue(this.SEARCH_VALUE)
         }
       })
   }
 }
 </script>
 
-<style lang="scss">
-  .catalog-list {
+<style scoped>
+    /* .catalog-list {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
-  }
+  } */
   .catalog_link_to_cart {
     position: absolute;
     top: 10px;
     right: 10px;
-    padding: $padding*2;
     border: solid 1px #aeaeae;
   }
   .filters {
@@ -178,10 +191,10 @@ export default {
     left: 0;
     bottom: 0;
   }
-  input[type=range]::-webkit-slider-thumb {
+  /* input[type=range]::-webkit-slider-thumb {
     z-index: 2;
     position: relative;
     top: 2px;
     margin-top: -7px;
-  }
+  } */
 </style>

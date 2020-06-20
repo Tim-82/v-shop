@@ -1,18 +1,26 @@
 <template>
-  <div class="cart-item">
-    <img class="cart_item_image" :src=" require('../../assets/images/' + cart_item_data.image) " alt="">
-    <div class="cart_item_info">
-      <p>{{cart_item_data.name}}</p>
-      <p>{{cart_item_data.price | filter |  priceFormat}}</p>
-      <p>{{cart_item_data.article}}</p>
-    </div>
-    <div class="cart-item-quantity">
-      <p>Qty:</p>
-      <span class="quantity_btn" @click="decrementItem">-</span>
-        {{cart_item_data.quantity}}
-      <span class="quantity_btn" @click="incrementItem">+</span>
-    </div>
-    <button @click="deleteFromCart">Delete</button>
+  <div>
+    <!-- <form action="#" method="get" class="cart-items"> -->
+      <div class="border rounded">
+        <div class="row bg-white">
+          <div class="col-md-3 po-5">
+            <img :src="require('../../assets/images/' + cart_item_data.image)" alt="image" class="img-fluid">
+          </div>
+          <div class="col-md-6">
+            <h5 class="pt-2">{{ cart_item_data.name }}</h5>
+            <small class="text-secondary">{{cart_item_data.article}}</small>
+            <h5 class="pt-2">{{cart_item_data.price | filter |  priceFormat}}</h5>
+            <button type="button" class="btn btn-warning">Save for later</button>
+            <button type="button" class="btn btn-danger mx-2" name="remove" @click="deleteFromCart">Remove</button>
+          </div>
+          <div class="col-md-3 py-5">
+            <button type="button" class="btn bg-light border rounded-circle" @click="decrementItem"><i class="fas fa-minus"></i></button>
+              <input type="text" :value="cart_item_data.quantity" class="form-control w-25 d-inline text-center">
+            <button type="button" class="btn bg-light border rounded-circle" @click="incrementItem"><i class="fas fa-plus"></i></button>
+          </div>
+        </div>
+      </div>
+    <!-- </form> -->
   </div>
 </template>
 
@@ -56,20 +64,10 @@ export default {
 </script>
 
 <style scoped>
-  .cart-item {
-    display: flex;
-    flex-wrap: nowrap;
-    justify-content: space-between;
-    align-items: center;
-    box-shadow: 0 0 8px;
-    /* padding: $padding*2;
-    margin-bottom: $margin*2; */
+  .shopping-cart {
+    padding: 3% 0;
   }
-
-  .cart_item_image {
-      max-width: 50px;
-    }
-  .quantity_btn {
-    cursor: pointer;
+  .cart-items + .cart-items {
+    padding: 2%0;
   }
 </style>

@@ -65,6 +65,28 @@ export default {
 </script>
 
 <style lang="scss">
+.catalog-item__image {
+    display: flex;
+}
+.nav{
+  // display: flex;
+  // justify-content: space-between;
+  // justify-content: center;
+  text-align: center;
+}
+
+ .nav img {
+  width: 80px;
+  height: 50px;
+  border: 1px solid black;
+  margin: 8px 2px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.nav img:hover {
+  border-color: #FFB6C1;
+}
   .popup_wrapper {
     background: rgba(64,64,64, .4);
     display: flex;
@@ -84,21 +106,24 @@ export default {
     background: #ffffff;
     box-shadow: 0 0 17px 0 #e7e7e7;
     z-index: 10;
-    &__header, &__footer {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    &__content {
-      display: flex;
+    // &__header, &__footer {
+    //   display: flex;
+    //   justify-content: space-between;
+    //   align-items: center;
+    // }
+    // &__content {
+    //   display: flex;
       justify-content: center;
-      align-items: center;
-    }
+    //   align-items: center;
+    // }
     .submit_btn {
       padding: 8px;
       color: #ffffff;
       background: #26ae68;
       cursor: pointer;
+    }
+    .submit_btn:hover {
+      background: #333;
     }
     .close_modal {
       padding: 8px;

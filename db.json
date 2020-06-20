@@ -1,58 +1,59 @@
 {
   "products": [
     {
-      "image": "1.png",
-      "name": "Gain Bolic 6000",
-      "price": 3090,
+      "image": "product1.png",
+      "name": "NIKE LEBRON 15 'WAFFLE'",
+      "info": "Some products information",
+      "price": 5490,
+      "previous_price": 7000,
       "article": "T1",
       "available": true,
-      "rating": 4,
-      "category": "Woman"
+      "rating": 5,
+      "category": "Man"
     },
     {
-      "image": "2.png",
-      "name": "Mass Effect Revolution",
+      "image": "product2.png",
+      "name": "Mass Effect",
+      "info": "Some products information",
       "price": 3150.12312412,
+      "previous_price": 4000,
       "article": "T2",
       "available": true,
       "rating": 5,
       "category": "Man"
     },
     {
-      "image": "3.png",
+      "image": "product3.png",
       "name": "Pro Gainer",
+      "info": "Some products information",
       "price": 4090.51524,
+      "previous_price": 5000,
       "article": "T3",
       "available": false,
       "rating": 4,
       "category": "Man"
     },
     {
-      "image": "4.png",
-      "name": "100% Whey Gold Standard",
+      "image": "product4.png",
+      "name": "100% Whey Gold",
+      "info": "Some products information",
       "price": 2090.1245512,
+      "previous_price": 3000,
       "article": "T4",
       "available": true,
-      "rating": 5,
+      "rating": 3,
       "category": "Man"
     },
     {
-      "image": "5.png",
-      "name": "Протеин Whey 100",
-      "price": 3990.3522314,
-      "article": "T5",
-      "available": false,
-      "rating": 4,
-      "category": "Woman"
-    },
-    {
-      "image": "6.png",
-      "name": "100% Casein Protein",
-      "price": 5690.4124123,
-      "article": "T6",
+      "image": "product4.png",
+      "name": "100% Whey Gold",
+      "info": "Some products information",
+      "price": 2090.1245512,
+      "previous_price": 3000,
+      "article": "T4",
       "available": true,
-      "rating": 5,
-      "category": "Woman"
+      "rating": 3,
+      "category": "Man"
     }
   ]
 }

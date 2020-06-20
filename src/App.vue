@@ -1,16 +1,18 @@
 <template>
   <div id="app">
-    <MainWrapper/>
+    <keep-alive>
+      <Home />
+    </keep-alive>
   </div>
 </template>
 
 <script>
-import MainWrapper from './components/v-main-wrapper'
+import Home from './views/Home'
 import { mapActions, mapGetters } from 'vuex'
 export default {
   name: 'app',
   components: {
-    MainWrapper
+    Home
   },
   computed: {
     ...mapGetters([

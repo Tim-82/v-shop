@@ -1,18 +1,37 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <MainWrapper msg="Welcome to Your Vue.js App"/>
+  <div>
+    <Header/>
+    <keep-alive>
+      <router-view />
+    </keep-alive>
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
-import MainWrapper from '@/components/MainWrapper.vue'
+// import Catalog from './Catalog'
+import Header from '../components/v-header'
 
 export default {
-  name: 'Home',
-  components: {
-    MainWrapper
-  }
+  name: 'home',
+  components: { Header },
+  // props: {},
+  data () {
+    return {
+    }
+  },
+  computed: {}
 }
 </script>
+
+<style scoped>
+  /* .main-wpapper {
+    max-width: 900px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-width: 900px;
+    margin: 0 auto;
+  } */
+</style>

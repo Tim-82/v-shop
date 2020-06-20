@@ -9,8 +9,8 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   state: {
     searchValue: '',
-    mobile: false,
-    desktop: true,
+    // mobile: false,
+    // desktop: true,
     products: [],
     cart: []
   },

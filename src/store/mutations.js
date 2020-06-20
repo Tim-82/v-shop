@@ -4,7 +4,6 @@ export default {
   },
   SET_CART: (state, product) => {
     if (state.cart) {
-      console.log(state.cart)
       let isProductExists = false
       state.cart.map(function (item) {
         if (item.article === product.article) {
