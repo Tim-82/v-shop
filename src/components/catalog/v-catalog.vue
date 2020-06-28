@@ -1,18 +1,10 @@
 <template>
   <div class="catalog">
-    <!-- <router-link
-      :to="{
-        name: 'cart',
-        params: {cart_data: CART}}"
-    >
-      <div class="catalog_link_to_cart">Cart: {{CART.length}}</div>
-    </router-link> -->
     <div class="filters">
       <Select
         :selected="selected"
         :options="categories"
         @select="sortByCategories"
-        :expanded="DESKTOP"
       />
       <div class="range-slider">
         <input
@@ -37,32 +29,32 @@
         <p>Max: {{ maxPrice }}</p>
       </div>
     </div>
-    <!-- <div class="catalog-list"> -->
-        <!-- v-for="product in filteredProducts"
-        :key="product.article" -->
-       <!-- <CatalogItem
-        :product_data="PRODUCTS"
-        @addToCart="addToCart"
-       /> -->
-      <!-- <div class="catalog-list"> -->
-        <CatalogItem
-          :product_data="PRODUCTS"
-          @addToCart="addToCart"
-        />
-      <!-- </div> -->
+    <div class="container">
+      <div class="row text-center py-5">
+          <div class="col-md-3 col-sm-6 my-3 my-md-0"
+            v-for="product in filteredProducts"
+            :key="product.article"
+          >
+            <CatalogItem
+              :product_data="product"
+              @addToCart="addToCart"
+            />
+          </div>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
 import CatalogItem from './v-catalog-Item'
 import { mapActions, mapGetters } from 'vuex'
-// import Select from '../v-select.vue'
+import Select from '../v-select.vue'
 
 export default {
   name: 'Catalog',
   components: {
-    CatalogItem
-    // Select
+    CatalogItem,
+    Select
   },
   props: {},
   data () {
@@ -83,7 +75,7 @@ export default {
     ...mapGetters([
       'PRODUCTS',
       // 'CART',
-      'DESKTOP',
+      // 'DESKTOP',
       'SEARCH_VALUE'
     ]),
     filteredProducts () {
@@ -117,10 +109,11 @@ export default {
         return item.price >= vm.minPrice && item.price <= vm.maxPrice
       })
       if (category) {
-        this.sortedProducts = this.sortedProducts.filter(function (e) {
+        this.sortedProducts = this.sortedProducts.filter(function (item) {
           vm.selected = category.name
-          return e.category === category.name
+          return item.category === category.name
         })
+        console.log(this.sortedProducts)
       }
     },
     // sortByCategories (category) { -----FOR-single-Select---)
@@ -163,12 +156,6 @@ export default {
 </script>
 
 <style scoped>
-    /* .catalog-list {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: center;
-  } */
   .catalog_link_to_cart {
     position: absolute;
     top: 10px;
@@ -177,7 +164,7 @@ export default {
   }
   .filters {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
   }
   .range-slider {
@@ -191,10 +178,10 @@ export default {
     left: 0;
     bottom: 0;
   }
-  /* input[type=range]::-webkit-slider-thumb {
+  input[type=range]::-webkit-slider-thumb {
     z-index: 2;
     position: relative;
     top: 2px;
     margin-top: -7px;
-  } */
+  }
 </style>

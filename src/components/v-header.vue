@@ -19,22 +19,16 @@
           </div>
         </div>
       </nav>
-      <!-- <div class="input-group mb-3">
-        <input type="text"  placeholder="Recipient's username"  v-model="searchValue">
-        <div class="input-group-append">
-          <button class="btn btn-outline-secondary" type="button" id="button-addon2"><i class="material-icons" @click="search">search</i></button>
-        </div>
-      </div> -->
 
-        <div class="search-field">
-          <input type="text" v-model="searchValue">
-          <button class="search_btn">
-            <i class="material-icons" @click="search">search</i>
-          </button>
-          <button class="search_btn">
-            <i class="material-icons" @click="clearSearchField">cancel</i>
-          </button>
-        </div>
+      <div class="search-field">
+        <input type="text" v-model="searchValue">
+        <button class="search_btn">
+          <i class="material-icons" @click="search">search</i>
+        </button>
+        <button class="search_btn">
+          <i class="material-icons" @click="clearSearchField">cancel</i>
+        </button>
+      </div>
     </header>
   </div>
 </template>

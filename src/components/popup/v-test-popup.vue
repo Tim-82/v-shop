@@ -1,22 +1,20 @@
 <template>
   <div class="card">
     <div class="top-section">
-      <img :src=" require('../../assets/test/' + image ) " alt="img" class="image-container">
-      <div class="price">850 $</div>
+      <img :src=" require('../../assets/images/shoes/' + mainImage ) " alt="img" class="image-container">
        <i class="material-icons closebtn" @click="closePopup">cancel</i>
     </div>
     <div class="product-info">
        <div class="nav">
         <img
-          v-for="(item, index) in pct" :key="index"
-          :src=" require('../../assets/test/' + item.value)"
+          v-for="(image, index) in all_images" :key="index"
+          :src=" require('../../assets/images/shoes/' + image) "
           alt=""
-          class="image"
-          @click="changeImg(item.value)"
+          @click="changeImg(image)"
         >
       </div>
-      <div class="name">NIKE</div>
-      <div class="dis">Кроссовки Shox R4</div>
+      <div class="name">{{ name }}</div>
+      <div class="dis">Кроссовки</div>
       <div >
         <button class="add-btn"  @click="addBtn">Add to Cart</button>
       </div>
@@ -25,17 +23,26 @@
 </template>
 
 <script>
+
 export default {
   name: 'test',
   components: {
   },
   props: {
-    // product_price: {
-    //   type: String,
-    //   default () {
-    //     return {}
-    //   }
-    // }
+    main_image: {
+      type: String,
+      default: ''
+    },
+    name: {
+      type: String,
+      default: ''
+    },
+    all_images: {
+      type: Array,
+      default () {
+        return {}
+      }
+    }
   },
   data () {
     return {
@@ -45,12 +52,12 @@ export default {
         { value: '3.png' }
       ],
       valid: true,
-      image: '1.png'
+      mainImage: this.main_image
     }
   },
   methods: {
     changeImg (e) {
-      this.image = e
+      this.mainImage = e
     },
     addBtn () {
       this.$emit('addBtn')
@@ -81,7 +88,7 @@ export default {
 }
 
 .card {
-  width: 500px;
+  width: 400px;
   background: #f1f1f1;
   border: 1px solid #333 ;
   position: absolute;

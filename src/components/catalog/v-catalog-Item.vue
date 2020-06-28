@@ -1,70 +1,53 @@
 <template>
-  <!-- <div class="catalog-item"> -->
-<div class="container">
+<div>
   <Popup
     v-if="infoPopupVisible"
     @closePopup="closePopup"
     @addBtn="addToCart"
+    :main_image="product_data.image"
+    :name="product_data.name"
+    :all_images="product_data.all_images"
   />
-    <!-- <img class="catalog-item__image" :src=" require('../../assets/images/' + product_image) " alt="img">
-      <div class="nav" v-for="(item, index) in pct" :key="index">
-        <img :src=" require('../../assets/test/' + item.value)" alt="" class="image" @click="changeCartImg(index)">
+    <div class="card shadow mb-3">
+      <div>
+        <img  :src=" require('../../assets/images/shoes/' + product_data.image) " alt="image" class="img-fluid card-img-top">
       </div>
-    <div>
-      <p class="catalog-item-name">{{product_data.name}}</p>
-      <p class="catalog-item-price">Price: {{product_data.price | filter |  priceFormat}} Р.</p>
-      <p class="catalog-item-price">{{product_data.category}}</p>
-    </div> -->
-  <div class="row text-center py-5">
-    <div class="col-md-3 col-sm-6 my-3 my-md-0"
-      v-for="product in product_data"
-      :key="product.article"
-    >
-      <div class="card shadow mb-3">
-        <div>
-          <img  :src=" require('../../assets/images/' + product.image) " alt="image" class="img-fluid card-img-top">
-        </div>
-        <div class="card-body">
-          <h5 class="card-title">{{ product.name }}</h5>
-          <h6>
-            <i class="far fa-star"
-              :class="{'fas  fa-star checked' :checkRating(star, product.rating)}"
-              v-for="star in 5"
-              :key="star.id"
-              >
-            </i>
-          </h6>
-          <p class="card-text">
-            Some quick example
-          </p>
-          <h5>
-            <small><s class="text-secondary">${{ product.previous_price }}</s></small><br>
-            <span class="price">Price: {{product.price | filter | priceFormat}}</span>
-          </h5>
+      <div class="card-body">
+        <h5 class="card-title">{{ product_data.name }}</h5>
+        <h6>
+          <i class="far fa-star"
+            :class="{'fas  fa-star checked' :checkRating(star, product_data.rating)}"
+            v-for="star in 5"
+            :key="star.id"
+            >
+          </i>
+        </h6>
+        <h5>
+          <small><s class="text-secondary">${{ product_data.previous_price }}</s></small><br>
+          <span class="price">Price: {{product_data.price | filter | priceFormat}}</span>
+        </h5>
 
-          <button
-            type="button"
-            class="btn btn-warning my-3"
-            name="add"
-            @click="addToCart(product)"
-          >
-              Add to Cart <i class="fas fa-shopping-cart"></i>
-          </button>
-          <button
-            class="btn btn-info"
-            @click="showPopupInfo"
-          >
-            Show info
-          </button>
-        </div>
-        </div>
+        <button
+          type="button"
+          class="btn btn-warning my-3"
+          name="add"
+          @click="addToCart"
+        >
+            Add to Cart <i class="fas fa-shopping-cart"></i>
+        </button>
+        <button
+          class="btn btn-info"
+          @click="showPopupInfo"
+        >
+          Show info
+        </button>
+      </div>
     </div>
-  </div>
 </div>
 </template>
 
 <script>
-import Popup from '../popup/v-test-popup'
+import Popup from '../popup/v-popup'
 import filter from '../filters/filter'
 import priceFormat from '../filters/price-format'
 
@@ -73,7 +56,7 @@ export default {
   components: { Popup },
   props: {
     product_data: {
-      type: Array,
+      type: Object,
       default () {
         return {}
       }
@@ -82,12 +65,7 @@ export default {
   data () {
     return {
       infoPopupVisible: false,
-      product_image: this.product_data.image,
-      pct: [
-        { value: '1.png' },
-        { value: '2.png' },
-        { value: '3.png' }
-      ]
+      product_image: this.product_data.image
     }
   },
   filters: {
@@ -98,8 +76,9 @@ export default {
     checkRating (s, myProduct) {
       return myProduct - s >= 0
     },
-    addToCart (data) {
-      this.$emit('addToCart', data)
+    addToCart () {
+      // console.log(data.target)
+      this.$emit('addToCart', this.product_data)
     },
     showPopupInfo () {
       this.infoPopupVisible = true
@@ -135,5 +114,8 @@ img {
     box-shadow: 0 0 8px 0;
     padding: 2px;
     margin-bottom: 2px;
+  } */
+  /* .card {
+    height: 600px;
   } */
 </style>

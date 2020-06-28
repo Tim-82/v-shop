@@ -1,14 +1,14 @@
 <template>
-  <div class="select"  v-if="expanded">
+  <div class="select">
     <p
       class="title"
-      @click="OptionsVisible = !OptionsVisible"
+      @click="areOptionsVisible = !areOptionsVisible"
     >
       {{ selected }}
     </p>
     <div
       class="options"
-      v-if="OptionsVisible"
+      v-if="areOptionsVisible"
     >
       <p
         v-for="option in options"
@@ -34,32 +34,28 @@ export default {
     selected: {
       type: String,
       default: ''
-    },
-    expanded: {
-      type: Boolean,
-      default: false
     }
   },
   data () {
     return {
-      OptionsVisible: false
+      areOptionsVisible: false
     }
   },
   methods: {
     selectOption (option) {
       this.$emit('select', option)
-      this.OptionsVisible = false
-    },
-    hideSelect () {
-      this.OptionsVisible = false
+      this.areOptionsVisible = false
     }
-  },
-  mounted () {
-    document.addEventListener('click', this.hideSelect.bind(this), true)
-  },
-  beforeDestroy () {
-    document.removeEventListener('click', this.hideSelect)
+    // hideSelect () {
+    //   this.areOptionsVisible = false
+    // }
   }
+  // mounted () {
+  //   document.addEventListener('click', this.hideSelect.bind(this), true)
+  // },
+  // beforeDestroy () {
+  //   document.removeEventListener('click', this.hideSelect)
+  // }
 }
 </script>
 
@@ -68,7 +64,7 @@ export default {
     position: relative;
     width: 200px;
     cursor: pointer;
-    text-align: ;
+    /* text-align:center ; */
     margin-bottom: 5px;
   }
   .title {

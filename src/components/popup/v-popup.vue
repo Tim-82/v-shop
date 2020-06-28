@@ -1,52 +1,66 @@
 <template>
-  <div class="popup_wrapper" ref="popup_wrapper">
-    <div class='v-popup'>
-      <div class="v-popup__header">
-        <span>{{popupTitle}}</span>
-        <span>
-        <i
-            class="material-icons"
-            @click="closePopup"
+  <div class="card">
+    <div class="top-section">
+      <img :src=" require('../../assets/images/shoes/' + mainImage ) " alt="img" class="image-container">
+       <i class="material-icons closebtn" @click="closePopup">cancel</i>
+    </div>
+    <div class="product-info">
+       <div class="nav">
+        <img
+          v-for="(image, index) in all_images" :key="index"
+          :src=" require('../../assets/images/shoes/' + image) "
+          alt=""
+          @click="changeImg(image)"
         >
-          close
-        </i>
-      </span>
       </div>
-      <div class="v-popup__content">
-        <slot></slot>
-      </div>
-      <div class="v-popup__footer">
-        <button class="close_modal" @click="closePopup">Close</button>
-        <button
-            class="submit_btn"
-            @click="rightBtnAction"
-        >
-          Add to cart
-        </button>
+      <div class="name">{{ name }}</div>
+      <div class="dis">Кроссовки</div>
+      <div >
+        <button class="add-btn"  @click="addBtn">Add to Cart</button>
       </div>
     </div>
   </div>
 </template>
 
 <script>
+
 export default {
-  name: 'popup',
+  name: 'test',
+  components: {
+  },
   props: {
-    popupTitle: {
+    main_image: {
       type: String,
-      default: 'Popup name'
+      default: ''
+    },
+    name: {
+      type: String,
+      default: ''
+    },
+    all_images: {
+      type: Array,
+      default () {
+        return {}
+      }
     }
-    // rightBtnTitle: {
-    //   type: String,
-    //   default: 'Ok'
-    // }
   },
   data () {
-    return {}
+    return {
+      pct: [
+        { value: '1.png' },
+        { value: '2.png' },
+        { value: '3.png' }
+      ],
+      valid: true,
+      mainImage: this.main_image
+    }
   },
   methods: {
-    rightBtnAction () {
-      this.$emit('rightBtnAction')
+    changeImg (e) {
+      this.mainImage = e
+    },
+    addBtn () {
+      this.$emit('addBtn')
       this.closePopup()
     },
     closePopup () {
@@ -55,8 +69,8 @@ export default {
   },
   mounted () {
     const vm = this
-    document.addEventListener('click', function (item) {
-      if (item.target === vm.$refs.popup_wrapper) {
+    document.addEventListener('click', function (event) {
+      if (event.target === vm.$refs.popup_wrapper) {
         vm.closePopup()
       }
     })
@@ -64,75 +78,108 @@ export default {
 }
 </script>
 
-<style lang="scss">
-.catalog-item__image {
-    display: flex;
+<style scoped>
+* {
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  font-family: "montserrat";
+  box-sizing: border-box;
 }
-.nav{
-  // display: flex;
-  // justify-content: space-between;
-  // justify-content: center;
-  text-align: center;
+
+.card {
+  width: 400px;
+  height: 550px;
+  background: #f1f1f1;
+  border: 1px solid #333 ;
+  position: absolute;
+  z-index: 1;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.top-section{
+  height: 310px;
+  overflow: hidden;
+  position: relative;
+}
+
+.image-container{
+  width: 100%;
+  height: 100%;
+}
+
+.nav {
+  display: flex;
+  justify-content: center;
 }
 
  .nav img {
   width: 80px;
   height: 50px;
-  border: 1px solid black;
+  border: 1px solid #ddd;
   margin: 8px 2px;
   cursor: pointer;
   transition: 0.3s;
 }
 
 .nav img:hover {
-  border-color: #FFB6C1;
+  border-color: #0da3dc;
 }
-  .popup_wrapper {
-    background: rgba(64,64,64, .4);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: absolute;
-    right: 0;
-    left: 0;
-    top: 0;
-    bottom: 0;
-  }
-  .v-popup {
-    padding: 16px;
-    position: fixed;
-    top: 50px;
-    width: 400px;
-    background: #ffffff;
-    box-shadow: 0 0 17px 0 #e7e7e7;
-    z-index: 10;
-    // &__header, &__footer {
-    //   display: flex;
-    //   justify-content: space-between;
-    //   align-items: center;
-    // }
-    // &__content {
-    //   display: flex;
-      justify-content: center;
-    //   align-items: center;
-    // }
-    .submit_btn {
-      padding: 8px;
-      color: #ffffff;
-      background: #26ae68;
-      cursor: pointer;
-    }
-    .submit_btn:hover {
-      background: #333;
-    }
-    .close_modal {
-      padding: 8px;
-      color: #ffffff;
-      background: red;
-      cursor: pointer;
-    }
-    .material-icons{
-      cursor: pointer;
-    }
-  }
+
+.price {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  color: #4169E1 ;
+  font-size: 24px;
+}
+
+.product-info {
+  padding: 20px;
+}
+
+.name {
+  text-transform: uppercase;
+  font-size: 24px;
+  color: #333;
+}
+
+.dis {
+  font-size: 16px;
+  opacity: 0.7;
+}
+/*
+.btn {
+  display: flex;
+  justify-content: center;
+} */
+
+.closebtn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-size: 30px;
+  cursor: pointer;
+  /* color: white; */
+}
+.closebtn:hover {
+  color: #ccc;
+}
+
+.add-btn {
+  display: block;
+  width: 100%;
+  background: #f6c007;
+  text-align: center;
+  color: #333;
+  padding: 10px;
+  margin-top: 10px;
+  transition: 0.3s;
+}
+
+button:hover{
+  background: #DEB887;
+}
 </style>
