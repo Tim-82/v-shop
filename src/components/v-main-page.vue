@@ -10,13 +10,13 @@
           </div>
         </div>
         <div class="cover">
-          <img src="../assets/images/blue.png" alt="matebook" />
+          <img src="../assets/images/stuff/blue.png" alt="matebook" />
         </div>
       </section>
 
-      <img class="big-circle" src="../assets/images/big-eclipse.svg" alt="" />
-      <img class="medium-circle" src="../assets/images/mid-eclipse.svg" alt="" />
-      <img class="small-circle" src="../assets/images/small-eclipse.svg" alt="" />
+      <img class="big-circle" src="../assets/images/stuff/big-eclipse.svg" alt="" />
+      <img class="medium-circle" src="../assets/images/stuff/mid-eclipse.svg" alt="" />
+      <img class="small-circle" src="../assets/images/stuff/small-eclipse.svg" alt="" />
     </main>
   </div>
 </template>

@@ -1,9 +1,9 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Catalog from '../components/catalog/v-catalog.vue'
+import Product from '../components/catalog/v-product-page.vue'
 import Cart from '../components/cart/v-cart.vue'
 import MainPage from '../components/v-main-page.vue'
-import Test from '../components/popup/v-test-popup.vue'
 
 Vue.use(VueRouter)
 
@@ -19,15 +19,14 @@ const routes = [
     component: Catalog
   },
   {
+    path: '/product',
+    name: 'product',
+    component: Product
+  },
+  {
     path: '/cart',
     name: 'cart',
     component: Cart,
-    props: true
-  },
-  {
-    path: '/test',
-    name: 'test',
-    component: Test,
     props: true
   }
 ]

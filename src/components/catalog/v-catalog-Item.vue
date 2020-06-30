@@ -9,7 +9,7 @@
     :all_images="product_data.all_images"
   />
     <div class="card shadow mb-3">
-      <div>
+      <div @click="productClick">
         <img  :src=" require('../../assets/images/shoes/' + product_data.image) " alt="image" class="img-fluid card-img-top">
       </div>
       <div class="card-body">
@@ -89,6 +89,9 @@ export default {
     changeCartImg (e) {
       this.product_image = this.pct[e].value
       console.log(this.pct[e].value)
+    },
+    productClick () {
+      this.$emit('productClick', this.product_data.article)
     }
   }
 }
@@ -100,6 +103,7 @@ img {
   height: auto;
   background: lightblue;
   background: radial-gradient(white 30%, lightblue 70%);
+  cursor: pointer;
   }
 
   .fa-star{

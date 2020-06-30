@@ -10,7 +10,7 @@
         <input
           type="range"
           min="0"
-          max="6000"
+          max="100"
           step="10"
           v-model.number="minPrice"
           @change="setRangeSlider"
@@ -18,7 +18,7 @@
         <input
           type="range"
           min="0"
-          max="6000"
+          max="100"
           step="10"
           v-model.number="maxPrice"
           @change="setRangeSlider"
@@ -38,6 +38,7 @@
             <CatalogItem
               :product_data="product"
               @addToCart="addToCart"
+              @productClick="productClick"
             />
           </div>
       </div>
@@ -68,7 +69,7 @@ export default {
       selected: 'All',
       sortedProducts: [],
       minPrice: 0,
-      maxPrice: 6000
+      maxPrice: 100
     }
   },
   computed: {
@@ -135,6 +136,9 @@ export default {
       } else {
         this.sortedProducts = this.PRODUCTS
       }
+    },
+    productClick (article) {
+      this.$router.push({ name: 'product', query: { product: article } })
     }
   },
   watch: {
