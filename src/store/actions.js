@@ -33,4 +33,7 @@ export default {
   SET_SEARCH_VALUE ({ commit }, value) {
     commit('SET_SEARCH', value)
   }
+  // ADD_NOTIFICATION ({ commit }, notifivation) {
+  //   commit('SET_NOTIFICATION', notifivation)
+  // }
 }

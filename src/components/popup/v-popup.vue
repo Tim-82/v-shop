@@ -1,5 +1,7 @@
 <template>
-  <div class="card">
+  <div
+    class="card"
+  >
     <div class="top-section">
       <img :src=" require('../../assets/images/shoes/' + mainImage ) " alt="img" class="image-container">
        <i class="material-icons closebtn" @click="closePopup">cancel</i>
@@ -51,6 +53,7 @@ export default {
         { value: '2.png' },
         { value: '3.png' }
       ],
+      show: true,
       valid: true,
       mainImage: this.main_image
     }

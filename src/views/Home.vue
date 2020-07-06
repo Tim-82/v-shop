@@ -3,6 +3,7 @@
     <Header/>
     <keep-alive>
       <router-view />
+      <!-- <NotificationList/> -->
     </keep-alive>
   </div>
 </template>
@@ -10,6 +11,7 @@
 <script>
 // import Catalog from './Catalog'
 import Header from '../components/v-header'
+// import NotificationList from '../components/notifications/v-notification-list.vue'
 
 export default {
   name: 'home',

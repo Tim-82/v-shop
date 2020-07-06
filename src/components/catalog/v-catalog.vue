@@ -1,5 +1,8 @@
 <template>
   <div class="catalog">
+    <Notification
+      :messages="messages"
+    />
     <div class="filters">
       <Select
         :selected="selected"
@@ -50,12 +53,14 @@
 import CatalogItem from './v-catalog-Item'
 import { mapActions, mapGetters } from 'vuex'
 import Select from '../v-select.vue'
+import Notification from '../notifications/v-notification'
 
 export default {
   name: 'Catalog',
   components: {
     CatalogItem,
-    Select
+    Select,
+    Notification
   },
   props: {},
   data () {
@@ -69,7 +74,8 @@ export default {
       selected: 'All',
       sortedProducts: [],
       minPrice: 0,
-      maxPrice: 100
+      maxPrice: 100,
+      messages: []
     }
   },
   computed: {
@@ -92,8 +98,17 @@ export default {
       'GET_PRODUCTS_FROM_API',
       'ADD_TO_CART'
     ]),
+    // addToCart (data) {
+    //   this.ADD_TO_CART(data)
+    // },
     addToCart (data) {
       this.ADD_TO_CART(data)
+        .then(() => {
+          const timeStamp = Date.now().toLocaleString()
+          this.messages.unshift(
+            { name: 'Product added to cart', id: timeStamp }
+          )
+        })
     },
     setRangeSlider () {
       if (this.minPrice > this.maxPrice) {

@@ -13,6 +13,7 @@ export default new Vuex.Store({
     // desktop: true,
     products: [],
     cart: []
+    // notifications: []
   },
   mutations,
   actions,

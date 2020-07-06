@@ -40,4 +40,10 @@ export default {
   SET_SEARCH: (state, value) => {
     state.searchValue = value
   }
+  // SET_NOTIFICATION: (state, notification) => {
+  //   state.notification.push({
+  //     ...notification,
+  //     id: (Math.random().toString(36) + Date.now().toString(36)).substr(2)
+  //   })
+  // }
 }
