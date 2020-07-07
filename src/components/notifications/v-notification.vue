@@ -11,11 +11,6 @@
         <div class="content__text">
           <div class="material-icons">check_circle</div>
           <span>{{message.name}}</span>
-          <!-- <i class="material-icons">{{message.icon}}</i> -->
-        </div>
-        <div class="content_buttons">
-          <button v-if="rightButton.length">{{rightButton}}</button>
-          <button v-if="leftButton.length">{{leftButton}}</button>
         </div>
       </div>
     </transition-group>
@@ -31,14 +26,6 @@ export default {
       default: () => {
         return []
       }
-    },
-    rightButton: {
-      type: String,
-      default: ''
-    },
-    leftButton: {
-      type: String,
-      default: ''
     },
     timeout: {
       type: Number,
@@ -89,15 +76,6 @@ export default {
     height: 50px;
     margin-bottom: 16px;
     background: green;
-    // &.error {
-    //   background: red;
-    // }
-    // &.warning {
-    //   background: orange;
-    // }
-    // &.check_circle {
-    //   background: green;
-    // }
   }
   .content {
     &__text {
@@ -105,9 +83,6 @@ export default {
       align-items: center;
       justify-content: space-between;
     }
-  }
-  .material-icons {
-    margin-left: 16px;
   }
 }
   .v-transition-animate {

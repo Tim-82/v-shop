@@ -9,7 +9,7 @@
       "previous_price": 105,
       "article": "T1",
       "available": true,
-      "rating": 5,
+      "rating": 3,
       "category": "Woman"
     },
     {
@@ -45,7 +45,7 @@
       "previous_price": 72,
       "article": "T4",
       "available": true,
-      "rating": 4,
+      "rating": 5,
       "category": "Man"
     }
   ]

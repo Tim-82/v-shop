@@ -1,5 +1,5 @@
 <template>
-  <div class="catalog">
+  <div>
     <Notification
       :messages="messages"
     />
@@ -70,7 +70,6 @@ export default {
         { name: 'Man', value: 'm' },
         { name: 'Woman', value: 'w' }
       ],
-      // test: this.PRODUCTS,
       selected: 'All',
       sortedProducts: [],
       minPrice: 0,
@@ -81,8 +80,6 @@ export default {
   computed: {
     ...mapGetters([
       'PRODUCTS',
-      // 'CART',
-      // 'DESKTOP',
       'SEARCH_VALUE'
     ]),
     filteredProducts () {
@@ -98,9 +95,6 @@ export default {
       'GET_PRODUCTS_FROM_API',
       'ADD_TO_CART'
     ]),
-    // addToCart (data) {
-    //   this.ADD_TO_CART(data)
-    // },
     addToCart (data) {
       this.ADD_TO_CART(data)
         .then(() => {
@@ -129,7 +123,6 @@ export default {
           vm.selected = category.name
           return item.category === category.name
         })
-        console.log(this.sortedProducts)
       }
     },
     // sortByCategories (category) { -----FOR-single-Select---)
@@ -165,7 +158,6 @@ export default {
     this.GET_PRODUCTS_FROM_API()
       .then((responce) => {
         if (responce.data) {
-          // console.log('Data arrived')
           this.sortByCategories()
           this.sortedProductsBySearchValue(this.SEARCH_VALUE)
         }
@@ -175,12 +167,6 @@ export default {
 </script>
 
 <style scoped>
-  .catalog_link_to_cart {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    border: solid 1px #aeaeae;
-  }
   .filters {
     display: flex;
     justify-content: space-around;

@@ -97,6 +97,7 @@ export default {
       this.DECREMENT_CART_ITEM(index)
     },
     deleteFromCart (index) {
+      console.log(index)
       this.DELETE_FROM_CART(index)
     }
   }

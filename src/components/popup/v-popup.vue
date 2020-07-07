@@ -3,13 +3,17 @@
     class="card"
   >
     <div class="top-section">
-      <img :src=" require('../../assets/images/shoes/' + mainImage ) " alt="img" class="image-container">
+      <img :src=" require('../../assets/images/shoes/' + mainImage ) "
+        alt="img"
+        class="image-container"
+      >
        <i class="material-icons closebtn" @click="closePopup">cancel</i>
     </div>
     <div class="product-info">
        <div class="nav">
         <img
-          v-for="(image, index) in all_images" :key="index"
+          v-for="(image, index) in all_images"
+          :key="index"
           :src=" require('../../assets/images/shoes/' + image) "
           alt=""
           @click="changeImg(image)"
@@ -48,11 +52,6 @@ export default {
   },
   data () {
     return {
-      pct: [
-        { value: '1.png' },
-        { value: '2.png' },
-        { value: '3.png' }
-      ],
       show: true,
       valid: true,
       mainImage: this.main_image
@@ -131,13 +130,13 @@ export default {
   border-color: #0da3dc;
 }
 
-.price {
+/* .price {
   position: absolute;
   top: 20px;
   left: 20px;
   color: #4169E1 ;
   font-size: 24px;
-}
+} */
 
 .product-info {
   padding: 20px;

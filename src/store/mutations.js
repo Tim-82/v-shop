@@ -8,7 +8,7 @@ export default {
       state.cart.map(function (item) {
         if (item.article === product.article) {
           isProductExists = true
-          item.quantity++
+          // item.quantity++
         }
       })
       if (!isProductExists) {
@@ -29,21 +29,7 @@ export default {
       state.cart[index].quantity--
     }
   },
-  SWITCH_MOBILE: (state) => {
-    state.mobile = true
-    state.desktop = false
-  },
-  SWITCH_DESKTOP: (state) => {
-    state.mobile = false
-    state.desktop = true
-  },
   SET_SEARCH: (state, value) => {
     state.searchValue = value
   }
-  // SET_NOTIFICATION: (state, notification) => {
-  //   state.notification.push({
-  //     ...notification,
-  //     id: (Math.random().toString(36) + Date.now().toString(36)).substr(2)
-  //   })
-  // }
 }

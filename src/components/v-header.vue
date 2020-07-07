@@ -75,24 +75,10 @@ export default {
     padding: 0 0.9rem 0.1rem 0.9rem;
     border-radius: 3rem;
   }
-  /* header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background: green;
-    padding: 16px;
-    position: fixed;
-    width: 100%;
-    top: 0;
-    left: 0;
-  }
-  img {
-    width: 50px;
-  } */
   .search-field {
     padding: 16px;
-    position: relative;
-    right: 200px;
+    /* position: relative;
+    right: 200px; */
     display: flex;
     justify-content: center;
     align-items: center;

@@ -24,16 +24,7 @@ export default {
   DELETE_FROM_CART ({ commit }, index) {
     commit('DELETE_ITEM_FROM_CART', index)
   },
-  SET_MOBILE ({ commit }) {
-    commit('SWITCH_MOBILE')
-  },
-  SET_DESKTOP ({ commit }) {
-    commit('SWITCH_DESKTOP')
-  },
   SET_SEARCH_VALUE ({ commit }, value) {
     commit('SET_SEARCH', value)
   }
-  // ADD_NOTIFICATION ({ commit }, notifivation) {
-  //   commit('SET_NOTIFICATION', notifivation)
-  // }
 }

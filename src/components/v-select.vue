@@ -46,16 +46,7 @@ export default {
       this.$emit('select', option)
       this.areOptionsVisible = false
     }
-    // hideSelect () {
-    //   this.areOptionsVisible = false
-    // }
   }
-  // mounted () {
-  //   document.addEventListener('click', this.hideSelect.bind(this), true)
-  // },
-  // beforeDestroy () {
-  //   document.removeEventListener('click', this.hideSelect)
-  // }
 }
 </script>
 
@@ -66,6 +57,7 @@ export default {
     cursor: pointer;
     /* text-align:center ; */
     margin-bottom: 5px;
+    z-index: 1;
   }
   .title {
     border: solid 1px #aeaeae;

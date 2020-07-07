@@ -16,7 +16,7 @@
         <h5 class="card-title">{{ product_data.name }}</h5>
         <h6>
           <i class="far fa-star"
-            :class="{'fas  fa-star checked' :checkRating(star, product_data.rating)}"
+            :class="{'fas  fa-star' :checkRating(star, product_data.rating)}"
             v-for="star in 5"
             :key="star.id"
             >
@@ -77,7 +77,6 @@ export default {
       return myProduct - s >= 0
     },
     addToCart () {
-      // console.log(data.target)
       this.$emit('addToCart', this.product_data)
     },
     showPopupInfo () {
@@ -86,10 +85,10 @@ export default {
     closePopup () {
       this.infoPopupVisible = false
     },
-    changeCartImg (e) {
-      this.product_image = this.pct[e].value
-      console.log(this.pct[e].value)
-    },
+    // changeCartImg (e) {
+    //   this.product_image = this.pct[e].value
+    //   // console.log(this.pct[e].value)
+    // },
     productClick () {
       this.$emit('productClick', this.product_data.article)
     }
@@ -99,10 +98,10 @@ export default {
 
 <style scoped>
 img {
-  max-width: 100%;
-  height: auto;
-  background: lightblue;
-  background: radial-gradient(white 30%, lightblue 70%);
+  /* max-width: 100%; */
+  height: 200px;
+  /* background: lightblue; */
+  /* background: radial-gradient(white 30%, lightblue 70%); */
   cursor: pointer;
   }
 
@@ -110,9 +109,9 @@ img {
     color: yellowgreen;
     padding: 3%;
   }
-  .checked {
+  /* .checked {
     color: yellowgreen;
-  }
+  } */
   /* .catalog-item {
     flex-basis: 25%;
     box-shadow: 0 0 8px 0;
