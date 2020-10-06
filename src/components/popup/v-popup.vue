@@ -3,7 +3,7 @@
     class="card"
   >
     <div class="top-section">
-      <img :src=" require('../../assets/images/shoes/' + mainImage ) "
+      <img :src=" require(`@/assets/images/shoes/${mainImage}`) "
         alt="img"
         class="image-container"
       >

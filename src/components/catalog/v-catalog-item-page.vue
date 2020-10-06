@@ -1,7 +1,12 @@
 <template>
   <div class="card">
     <div class="top-section">
-      <img v-if="product.image" :src=" require('../../assets/images/shoes/' +product.image ) " alt="img" class="image-container">
+      <img
+        v-if="product.image"
+        :src="require(`@/assets/images/shoes/${product.image}`)"
+        alt="img"
+        class="image-container"
+      />
     </div>
     <div class="product-info">
       <p>Product name: {{product.name}}</p>
@@ -21,7 +26,6 @@
 import { mapGetters, mapActions } from 'vuex'
 import filter from '../filters/filter'
 import formattedPrice from '../filters/price-format'
-// import { magnifiergGlass } from '@/mixins/magnifiergGlass'
 
 export default {
   name: 'v-product-page',
@@ -50,59 +54,45 @@ export default {
   },
   methods: {
     ...mapActions([
-      'GET_PRODUCTS_FROM_API',
+      // 'GET_PRODUCTS_FROM_API',
       'ADD_TO_CART'
     ]),
     addBtn () {
       this.ADD_TO_CART(this.product)
     }
-  },
-  mounted () {
-    if (!this.PRODUCTS.length) {
-      this.GET_PRODUCTS_FROM_API()
-    }
   }
+  // mounted () {
+  //   if (!this.PRODUCTS.length) {
+  //     this.GET_PRODUCTS_FROM_API()
+  //   }
+  // }
   // mixins: [magnifiergGlass]
 }
 </script>
 
 <style scoped>
+* {box-sizing: border-box;}
 .card {
-  width: 100%;
+  display: flex;
+  align-items: center;
   background: white;
 }
 .image-container{
   height:500px;
 }
 .btn {
-  display: block;
+  /* display: block; */
   width: 200px;
   background: #f6c007;
   text-align: center;
   color: #333;
   padding: 10px;
-  margin-top: 10px;
+  margin: 50px;
   transition: 0.3s;
 }
 
 button:hover{
   background: #DEB887;
   text-decoration: none;
-}
-
-* {box-sizing: border-box;}
-
-.img-magnifier-container {
-  position:relative;
-}
-
-.img-magnifier-glass {
-  position: absolute;
-  border: 3px solid #000;
-  border-radius: 50%;
-  cursor: none;
-  /*Set the size of the magnifier glass:*/
-  width: 100px;
-  height: 100px;
 }
 </style>

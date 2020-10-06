@@ -10,20 +10,33 @@
           </div>
         </div>
         <div class="cover">
-          <img src="../assets/images/stuff/blue.png" alt="matebook" />
+          <img src="@/assets/images/stuff/blue.png" alt="matebook" />
         </div>
       </section>
-
-      <img class="big-circle" src="../assets/images/stuff/big-eclipse.svg" alt="" />
-      <img class="medium-circle" src="../assets/images/stuff/mid-eclipse.svg" alt="" />
-      <img class="small-circle" src="../assets/images/stuff/small-eclipse.svg" alt="" />
+      <img
+        v-for="(circle, index) in circles"
+        :key="index"
+        :class="circle.class"
+        :src="require(`@/assets/images/stuff/${circle.path}`)"
+      />
+      <!-- <img class="big-circle" src="@/assets/images/stuff/big-eclipse.svg" alt="" />
+      <img class="medium-circle" src="@/assets/images/stuff/mid-eclipse.svg" alt="" />
+      <img class="small-circle" src="@/assets/images/stuff/small-eclipse.svg" alt="" /> -->
     </main>
   </div>
 </template>
 
 <script>
 export default {
-
+  data () {
+    return {
+      circles: [
+        { class: 'big-circle', path: 'big-eclipse.svg' },
+        { class: 'medium-circle', path: 'mid-eclipse.svg' },
+        { class: 'small-circle', path: 'small-eclipse.svg' }
+      ]
+    }
+  }
 }
 </script>
 

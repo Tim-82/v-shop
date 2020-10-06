@@ -10,7 +10,7 @@
   />
     <div class="card shadow mb-3">
       <div @click="productClick">
-        <img  :src=" require('../../assets/images/shoes/' + product_data.image) " alt="image" class="img-fluid card-img-top">
+        <img  :src=" require(`@/assets/images/shoes/${product_data.image}`) " alt="image" class="img-fluid card-img-top">
       </div>
       <div class="card-body">
         <h5 class="card-title">{{ product_data.name }}</h5>
@@ -98,10 +98,7 @@ export default {
 
 <style scoped>
 img {
-  /* max-width: 100%; */
   height: 200px;
-  /* background: lightblue; */
-  /* background: radial-gradient(white 30%, lightblue 70%); */
   cursor: pointer;
   }
 
@@ -109,16 +106,4 @@ img {
     color: yellowgreen;
     padding: 3%;
   }
-  /* .checked {
-    color: yellowgreen;
-  } */
-  /* .catalog-item {
-    flex-basis: 25%;
-    box-shadow: 0 0 8px 0;
-    padding: 2px;
-    margin-bottom: 2px;
-  } */
-  /* .card {
-    height: 600px;
-  } */
 </style>

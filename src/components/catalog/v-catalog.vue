@@ -62,7 +62,7 @@ export default {
     Select,
     Notification
   },
-  props: {},
+  // props: {},
   data () {
     return {
       categories: [
@@ -146,7 +146,7 @@ export default {
       }
     },
     productClick (article) {
-      this.$router.push({ name: 'product', query: { product: article } })
+      this.$router.push({ name: 'catalog_item', query: { product: article } })
     }
   },
   watch: {
@@ -154,7 +154,7 @@ export default {
       this.sortedProductsBySearchValue(this.SEARCH_VALUE)
     }
   },
-  mounted () {
+  created () {
     this.GET_PRODUCTS_FROM_API()
       .then((responce) => {
         if (responce.data) {

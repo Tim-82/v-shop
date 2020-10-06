@@ -77,8 +77,6 @@ export default {
   }
   .search-field {
     padding: 16px;
-    /* position: relative;
-    right: 200px; */
     display: flex;
     justify-content: center;
     align-items: center;

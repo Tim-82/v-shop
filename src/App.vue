@@ -1,17 +1,18 @@
 <template>
   <div id="app">
+    <Header/>
     <keep-alive>
-      <Home />
+      <router-view />
     </keep-alive>
   </div>
 </template>
 
 <script>
-import Home from './views/Home'
+import Header from './views/v-header'
 export default {
   name: 'app',
   components: {
-    Home
+    Header
   },
   computed: {},
   methods: {}
