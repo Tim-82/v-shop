@@ -23,10 +23,12 @@
       <div class="search-field">
         <input type="text" v-model="searchValue">
         <button class="search_btn">
-          <i class="material-icons" @click="search">search</i>
+          <i class="fas fa-search fa-1x" @click="search"></i>
+          <!-- <i class="material-icons" @click="search">search</i> -->
         </button>
         <button class="search_btn">
-          <i class="material-icons" @click="clearSearchField">cancel</i>
+          <i class="fas fa-times fa-1x" @click="clearSearchField"></i>
+          <!-- <i class="material-icons" @click="clearSearchField">cancel</i> -->
         </button>
       </div>
     </header>

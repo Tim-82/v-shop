@@ -7,8 +7,7 @@
         alt="img"
         class="image-container"
       >
-      <i class="fas fa-times" @click="closePopup"></i>
-      <!-- <i class="material-icons" @click="closePopup">cancel</i> -->
+        <i class="fas fa-times fa-1x closebtn" @click="closePopup"></i>
     </div>
     <div class="product-info">
        <div class="nav">
