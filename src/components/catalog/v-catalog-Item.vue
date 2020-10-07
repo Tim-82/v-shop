@@ -10,15 +10,15 @@
   />
     <div class="card shadow mb-3">
       <div @click="productClick">
-        <img  :src=" require(`@/assets/images/shoes/${product_data.image}`) " alt="image" class="img-fluid card-img-top">
+        <img  :src="require(`@/assets/images/shoes/${product_data.image}`) " alt="image" class="img-fluid card-img-top">
       </div>
       <div class="card-body">
         <h5 class="card-title">{{ product_data.name }}</h5>
         <h6>
           <i class="far fa-star"
-            :class="{'fas  fa-star' :checkRating(star, product_data.rating)}"
             v-for="star in 5"
             :key="star.id"
+            :class="{'fas fa-star' :checkRating(star, product_data.rating)}"
             >
           </i>
         </h6>
@@ -64,8 +64,8 @@ export default {
   },
   data () {
     return {
-      infoPopupVisible: false,
-      product_image: this.product_data.image
+      infoPopupVisible: false
+      // product_image: this.product_data.image
     }
   },
   filters: {

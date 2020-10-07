@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <Header/>
+    <Navbar/>
     <keep-alive>
       <router-view />
     </keep-alive>
@@ -8,11 +8,11 @@
 </template>
 
 <script>
-import Header from './views/v-header'
+import Navbar from './views/v-navbar'
 export default {
   name: 'app',
   components: {
-    Header
+    Navbar
   },
   computed: {},
   methods: {}

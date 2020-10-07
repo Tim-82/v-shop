@@ -7,20 +7,21 @@
         alt="img"
         class="image-container"
       >
-       <i class="material-icons closebtn" @click="closePopup">cancel</i>
+      <i class="fas fa-times" @click="closePopup"></i>
+      <!-- <i class="material-icons" @click="closePopup">cancel</i> -->
     </div>
     <div class="product-info">
        <div class="nav">
         <img
           v-for="(image, index) in all_images"
           :key="index"
-          :src=" require('../../assets/images/shoes/' + image) "
+          :src=" require(`@/assets/images/shoes/${image}`) "
           alt=""
           @click="changeImg(image)"
         >
       </div>
       <div class="name">{{ name }}</div>
-      <div class="dis">Кроссовки</div>
+      <div class="dis">Sneakers</div>
       <div >
         <button class="add-btn"  @click="addBtn">Add to Cart</button>
       </div>
@@ -52,8 +53,8 @@ export default {
   },
   data () {
     return {
-      show: true,
-      valid: true,
+      // show: true,
+      // valid: true,
       mainImage: this.main_image
     }
   },
