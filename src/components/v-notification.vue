@@ -9,7 +9,7 @@
         :key="message.id"
       >
         <div class="content__text">
-          <div class="material-icons">check_circle</div>
+          <i class="far fa-check-circle fa-1x"></i>
           <span>{{message.name}}</span>
         </div>
       </div>

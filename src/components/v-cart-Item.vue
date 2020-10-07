@@ -4,7 +4,7 @@
       <div class="border rounded">
         <div class="row bg-white">
           <div class="col-md-3 po-5">
-            <img :src="require('../../assets/images/shoes/' + cart_item_data.image)" alt="image" class="img-fluid">
+            <img :src="require(`@/assets/images/shoes/${cart_item_data.image}`)" alt="image" class="img-fluid">
           </div>
           <div class="col-md-6">
             <h5 class="pt-2">{{ cart_item_data.name }}</h5>
@@ -25,8 +25,8 @@
 </template>
 
 <script>
-import filter from '../filters/filter'
-import priceFormat from '../filters/price-format'
+import filter from '@/filters/filter'
+import priceFormat from '@/filters/price-format'
 
 export default {
   name: 'cart-item',

@@ -47,9 +47,9 @@
 </template>
 
 <script>
-import Popup from '../popup/v-popup'
-import filter from '../filters/filter'
-import priceFormat from '../filters/price-format'
+import Popup from './v-popup'
+import filter from '@/filters/filter'
+import priceFormat from '@/filters/price-format'
 
 export default {
   name: 'catalog-item',

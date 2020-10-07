@@ -8,7 +8,6 @@ export default {
       state.cart.map(function (item) {
         if (item.article === product.article) {
           isProductExists = true
-          // item.quantity++
         }
       })
       if (!isProductExists) {

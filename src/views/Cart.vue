@@ -44,10 +44,10 @@
 </template>
 
 <script>
-import CartItem from './v-cart-Item'
+import CartItem from '@/components/v-cart-Item'
 import { mapActions } from 'vuex'
-import filter from '../filters/filter'
-import priceFormat from '../filters/price-format'
+import filter from '@/filters/filter'
+import priceFormat from '@/filters/price-format'
 
 export default {
   name: 'cart',
@@ -97,7 +97,6 @@ export default {
       this.DECREMENT_CART_ITEM(index)
     },
     deleteFromCart (index) {
-      console.log(index)
       this.DELETE_FROM_CART(index)
     }
   }

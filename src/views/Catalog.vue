@@ -50,10 +50,10 @@
 </template>
 
 <script>
-import CatalogItem from './v-catalog-Item'
+import CatalogItem from '@/components/v-catalog-Item'
 import { mapActions, mapGetters } from 'vuex'
-import Select from '../v-select.vue'
-import Notification from '../notifications/v-notification'
+import Select from '@/components/v-select.vue'
+import Notification from '@/components/v-notification'
 
 export default {
   name: 'Catalog',
@@ -146,7 +146,7 @@ export default {
       }
     },
     productClick (article) {
-      this.$router.push({ name: 'catalog_item', query: { product: article } })
+      this.$router.push({ name: 'catalog_item_page', query: { product: article } })
     }
   },
   watch: {

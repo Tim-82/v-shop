@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import MainPage from '../views/v-main-page.vue'
+import MainPage from '@/views/MainPage.vue'
 
 Vue.use(VueRouter)
 
@@ -13,17 +13,17 @@ const routes = [
   {
     path: '/catalog',
     name: 'catalog',
-    component: () => import('@/components/catalog/v-catalog.vue')
+    component: () => import('@/views/Catalog.vue')
   },
   {
     path: '/catalog_item',
-    name: 'catalog_item',
-    component: () => import('@/components/catalog/v-catalog-item-page.vue')
+    name: 'catalog_item_page',
+    component: () => import('@/views/CatalogItemPage.vue')
   },
   {
     path: '/cart',
     name: 'cart',
-    component: () => import('@/components/cart/v-cart.vue'),
+    component: () => import('@/views/Cart.vue'),
     props: true
   }
 ]

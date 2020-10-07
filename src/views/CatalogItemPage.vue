@@ -24,8 +24,8 @@
 
 <script>
 import { mapGetters, mapActions } from 'vuex'
-import filter from '../filters/filter'
-import formattedPrice from '../filters/price-format'
+import filter from '@/filters/filter'
+import formattedPrice from '@/filters/price-format'
 
 export default {
   name: 'v-product-page',

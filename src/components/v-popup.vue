@@ -1,6 +1,7 @@
 <template>
   <div
     class="card"
+    ref="popup_wrapper"
   >
     <div class="top-section">
       <img :src=" require(`@/assets/images/shoes/${mainImage}`) "
