@@ -16,7 +16,7 @@ const routes = [
     component: () => import('@/views/Catalog.vue')
   },
   {
-    path: '/catalog_item',
+    path: '/catalog/:id',
     name: 'catalog_item_page',
     component: () => import('@/views/CatalogItemPage.vue')
   },

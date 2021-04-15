@@ -32,8 +32,8 @@
         > -->
       </div>
       <div class="range-values">
-        <input type="number" min="0" max="100" step="1" v-model="sliderMin">
-        <input type="number" min="0" max="100" step="1" v-model="sliderMax">
+        <input type="number" min="0" max="100" step="1" v-model="sliderMin" disabled>
+        <input type="number" min="0" max="100" step="1" v-model="sliderMax" disabled>
       </div>
     </div>
     <div class="container">
@@ -45,7 +45,6 @@
             <CatalogItem
               :product_data="product"
               @addToCart="addToCart"
-              @productClick="productClick"
             />
           </div>
       </div>
@@ -176,10 +175,10 @@ export default {
       } else {
         this.sortedProducts = this.PRODUCTS
       }
-    },
-    productClick (article) {
-      this.$router.push({ name: 'catalog_item_page', query: { product: article } })
     }
+    // productClick (article) {
+    //   this.$router.push({ name: 'catalog_item_page', query: { product: article } })
+    // }
   },
   watch: {
     SEARCH_VALUE () {

@@ -9,9 +9,9 @@
     :all_images="product_data.all_images"
   />
     <div class="card shadow mb-3">
-      <div @click="productClick">
+      <router-link :to="{name:'catalog_item_page', params: {id: product_data.article}}">
         <img  :src="require(`@/assets/images/shoes/${product_data.image}`) " alt="image" class="img-fluid card-img-top">
-      </div>
+      </router-link>
       <div class="card-body">
         <h5 class="card-title">{{ product_data.name }}</h5>
         <h6>

@@ -1,17 +1,22 @@
 <template>
   <div class="card">
     <div class="top-section">
+      <div class="img-magnifier-container">
       <img
         v-if="product.image"
+        id="myimage"
         :src="require(`@/assets/images/shoes/${product.image}`)"
         alt="img"
         class="image-container"
+        width="600"
+        height="400"
       />
+      </div>
     </div>
     <div class="product-info">
       <p>Product name: {{product.name}}</p>
       <p>Article: {{product.article}}</p>
-      <p>Price: {{product.price | filter | priceFormat }}</p>
+      <p>Price: {{product.price | filter }}</p>
       <div>
         <button class="btn"  @click="addBtn">Add to Cart</button>
         <router-link :to="{name: 'catalog'}">
@@ -23,34 +28,20 @@
 </template>
 
 <script>
-import { mapGetters, mapActions } from 'vuex'
+import { mapActions } from 'vuex'
 import filter from '@/filters/filter'
-import formattedPrice from '@/filters/price-format'
+// import magnifier from '../mixins/magnifier'
 
 export default {
   name: 'v-product-page',
   props: {},
   data () {
-    return {}
+    return {
+      product: null
+    }
   },
   filters: {
-    formattedPrice,
     filter
-  },
-  computed: {
-    ...mapGetters([
-      'PRODUCTS'
-    ]),
-    product () {
-      let result = {}
-      const vm = this
-      this.PRODUCTS.find(function (item) {
-        if (item.article === vm.$route.query.product) {
-          result = item
-        }
-      })
-      return result
-    }
   },
   methods: {
     ...mapActions([
@@ -60,13 +51,12 @@ export default {
     addBtn () {
       this.ADD_TO_CART(this.product)
     }
+  },
+  mounted () {
+    const id = this.$route.params.id
+    this.product = this.$store.getters.GET_PRODUCT(id)
+    // magnifier('myimage', 3)
   }
-  // mounted () {
-  //   if (!this.PRODUCTS.length) {
-  //     this.GET_PRODUCTS_FROM_API()
-  //   }
-  // }
-  // mixins: [magnifiergGlass]
 }
 </script>
 
@@ -91,8 +81,23 @@ export default {
   transition: 0.3s;
 }
 
-button:hover{
+.btn:hover{
   background: #DEB887;
   text-decoration: none;
 }
+
+/* .img-magnifier-container {
+  position: relative;
+} */
+
+.img-magnifier-glass {
+  position: absolute;
+  border: 3px solid #000;
+  border-radius: 50%;
+  cursor: none;
+  /*Set the size of the magnifier glass:*/
+  width: 100px;
+  height: 100px;
+}
+
 </style>

@@ -41,14 +41,14 @@ body {
   font-family: 'Poppins', sans-serif;
 }
 
-.cart {
+/* .cart {
   display: flex;
-}
+} */
 
-.cart {
+/* .cart {
   flex: 1;
   justify-content: flex-end;
-}
+} */
 
 .presentation {
   display: flex;

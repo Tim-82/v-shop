@@ -25,6 +25,7 @@
 </template>
 
 <script>
+// import { mapActions } from 'vuex'
 import filter from '@/filters/filter'
 import priceFormat from '@/filters/price-format'
 

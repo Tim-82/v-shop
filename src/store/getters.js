@@ -7,5 +7,8 @@ export default {
   },
   SEARCH_VALUE (state) {
     return state.searchValue
+  },
+  GET_PRODUCT: (state) => (id) => {
+    return state.products.find(product => product.id === id)
   }
 }

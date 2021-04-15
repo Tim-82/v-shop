@@ -8,7 +8,6 @@
         alt="img"
         class="image-container"
       >
-        <i class="fas fa-times fa-1x closebtn" @click="closePopup"></i>
     </div>
     <div class="product-info">
        <div class="nav">
@@ -21,10 +20,8 @@
         >
       </div>
       <div class="name">{{ name }}</div>
-      <div class="dis">Sneakers</div>
-      <div >
-        <button class="add-btn"  @click="addBtn">Add to Cart</button>
-      </div>
+      <button class="add-btn"  @click="addBtn">Add to Cart</button>
+      <div class="cl-btn" @click="closePopup"></div>
     </div>
   </div>
 </template>
@@ -69,15 +66,15 @@ export default {
     closePopup () {
       this.$emit('closePopup')
     }
-  },
-  mounted () {
-    const vm = this
-    document.addEventListener('click', function (event) {
-      if (event.target === vm.$refs.popup_wrapper) {
-        vm.closePopup()
-      }
-    })
   }
+  // mounted () {
+  //   const vm = this
+  //   document.addEventListener('click', function (event) {
+  //     if (event.target === vm.$refs.popup_wrapper) {
+  //       vm.closePopup()
+  //     }
+  //   })
+  // }
 }
 </script>
 
@@ -153,23 +150,6 @@ export default {
   font-size: 16px;
   opacity: 0.7;
 }
-/*
-.btn {
-  display: flex;
-  justify-content: center;
-} */
-
-.closebtn {
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  font-size: 30px;
-  cursor: pointer;
-  /* color: white; */
-}
-.closebtn:hover {
-  color: #ccc;
-}
 
 .add-btn {
   display: block;
@@ -184,5 +164,47 @@ export default {
 
 button:hover{
   background: #DEB887;
+}
+
+.cl-btn {
+    width: 40px;
+    height: 40px;
+    border-radius: 40px;
+    position: relative;
+    z-index: 1;
+    margin: 5px auto;
+    cursor: pointer;
+}
+.cl-btn:before {
+    content: '+';
+    color: #337AB7;
+    position: absolute;
+    z-index: 2;
+    transform: rotate(45deg);
+    font-size: 50px;
+    line-height: 1;
+    top: -5px;
+    left: 6px;
+    transition: all 0.3s cubic-bezier(0.77, 0, 0.2, 0.85);
+}
+.cl-btn:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 100%;
+    background: #17A2B8;
+    z-index: 1;
+    transition: all 0.3s cubic-bezier(0.77, 0, 0.2, 0.85);
+    transform: scale(0.01);
+}
+.cl-btn:hover:after {
+    transform: scale(1);
+}
+.cl-btn:hover:before {
+    transform: scale(0.8) rotate(45deg);
+    color: #fff;
 }
 </style>
