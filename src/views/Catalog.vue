@@ -9,32 +9,18 @@
         :options="categories"
         @select="sortByCategories"
       />
-      <div class="range-slider">
-        <div class='range-slider'>
-          <input type="range" min="0" max="100" step="1" v-model="sliderMin">
-          <input type="range" min="0" max="100" step="1" v-model="sliderMax">
-        </div>
-        <!-- <input
-          type="range"
-          min="0"
-          max="100"
-          step="10"
-          v-model.number="minPrice"
-          @change="setRangeSlider"
-        >
-        <input
-          type="range"
-          min="0"
-          max="100"
-          step="10"
-          v-model.number="maxPrice"
-          @change="setRangeSlider"
-        > -->
-      </div>
-      <div class="range-values">
-        <input type="number" min="0" max="100" step="1" v-model="sliderMin" disabled>
-        <input type="number" min="0" max="100" step="1" v-model="sliderMax" disabled>
-      </div>
+
+      <RangeSlider
+        :min = "minAngle"
+        :max = "maxAngle"
+        @search="minAngle = $event"
+        @sort="sortByCategories"
+      />
+
+      <RangeValues
+        :min = "minAngle"
+        :max = "maxAngle"
+      />
     </div>
     <div class="container">
       <div class="row text-center py-5">
@@ -57,15 +43,18 @@ import CatalogItem from '@/components/v-catalog-Item'
 import { mapActions, mapGetters } from 'vuex'
 import Select from '@/components/v-select.vue'
 import Notification from '@/components/v-notification'
+import RangeSlider from '@/components/v-range-slider'
+import RangeValues from '@/components/v-range-values'
 
 export default {
   name: 'Catalog',
   components: {
     CatalogItem,
     Select,
-    Notification
+    Notification,
+    RangeSlider,
+    RangeValues
   },
-  // props: {},
   data () {
     return {
       categories: [
@@ -91,34 +80,6 @@ export default {
       } else {
         return this.PRODUCTS
       }
-    },
-    sliderMin: {
-      get: function () {
-        var val = parseInt(this.minAngle)
-        return val
-      },
-      set: function (val) {
-        val = parseInt(val)
-        if (val > this.maxAngle) {
-          this.maxAngle = val
-        }
-        this.minAngle = val
-        this.sortByCategories()
-      }
-    },
-    sliderMax: {
-      get: function () {
-        var val = parseInt(this.maxAngle)
-        return val
-      },
-      set: function (val) {
-        val = parseInt(val)
-        if (val < this.minAngle) {
-          this.minAngle = val
-        }
-        this.maxAngle = val
-        this.sortByCategories()
-      }
     }
   },
   methods: {
@@ -134,14 +95,6 @@ export default {
             { name: 'Product added to cart', id: timeStamp }
           )
         })
-    },
-    setRangeSlider () {
-      if (this.minPrice > this.maxPrice) {
-        const tmp = this.maxPrice
-        this.maxPrice = this.minPrice
-        this.minPrice = tmp
-      }
-      this.sortByCategories()
     },
     sortByCategories (category) {
       const vm = this
