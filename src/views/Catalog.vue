@@ -11,17 +11,11 @@
       />
 
       <div class="slider">
-        <vue-range-slider
-          v-model="value"
-        ></vue-range-slider>
+         <VueSlider
+            v-model="value"
+          />
       </div>
 
-      <!-- <RangeSlider
-        :min = "minAngle"
-        :max = "maxAngle"
-        @search="minAngle = $event"
-        @sort="sortByCategories"
-      /> -->
     </div>
     <div class="container">
       <div class="row text-center py-5">
@@ -44,10 +38,8 @@ import CatalogItem from '@/components/v-catalog-Item'
 import { mapActions, mapGetters } from 'vuex'
 import Select from '@/components/v-select.vue'
 import Notification from '@/components/v-notification'
-import 'vue-range-component/dist/vue-range-slider.css'
-import VueRangeSlider from 'vue-range-component'
-// import RangeSlider from '@/components/v-range-slider'
-// import RangeValues from '@/components/v-range-values'
+import VueSlider from 'vue-slider-component'
+import 'vue-slider-component/theme/default.css'
 
 export default {
   name: 'Catalog',
@@ -55,9 +47,7 @@ export default {
     CatalogItem,
     Select,
     Notification,
-    VueRangeSlider
-    // RangeSlider,
-    // RangeValues
+    VueSlider
   },
   data () {
     return {
