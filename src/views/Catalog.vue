@@ -10,17 +10,18 @@
         @select="sortByCategories"
       />
 
-      <RangeSlider
+      <div class="slider">
+        <vue-range-slider
+          v-model="value"
+        ></vue-range-slider>
+      </div>
+
+      <!-- <RangeSlider
         :min = "minAngle"
         :max = "maxAngle"
         @search="minAngle = $event"
         @sort="sortByCategories"
-      />
-
-      <RangeValues
-        :min = "minAngle"
-        :max = "maxAngle"
-      />
+      /> -->
     </div>
     <div class="container">
       <div class="row text-center py-5">
@@ -43,8 +44,10 @@ import CatalogItem from '@/components/v-catalog-Item'
 import { mapActions, mapGetters } from 'vuex'
 import Select from '@/components/v-select.vue'
 import Notification from '@/components/v-notification'
-import RangeSlider from '@/components/v-range-slider'
-import RangeValues from '@/components/v-range-values'
+import 'vue-range-component/dist/vue-range-slider.css'
+import VueRangeSlider from 'vue-range-component'
+// import RangeSlider from '@/components/v-range-slider'
+// import RangeValues from '@/components/v-range-values'
 
 export default {
   name: 'Catalog',
@@ -52,8 +55,9 @@ export default {
     CatalogItem,
     Select,
     Notification,
-    RangeSlider,
-    RangeValues
+    VueRangeSlider
+    // RangeSlider,
+    // RangeValues
   },
   data () {
     return {
@@ -65,8 +69,7 @@ export default {
       selected: 'All',
       sortedProducts: [],
       messages: [],
-      minAngle: 0,
-      maxAngle: 100
+      value: [0, 100]
     }
   },
   computed: {
@@ -100,7 +103,7 @@ export default {
       const vm = this
       this.sortedProducts = [...this.PRODUCTS]
       this.sortedProducts = this.sortedProducts.filter(function (item) {
-        return item.price >= vm.minAngle && item.price <= vm.maxAngle
+        return item.price >= vm.value[0] && item.price <= vm.value[1]
       })
       if (category) {
         this.sortedProducts = this.sortedProducts.filter(function (item) {
@@ -129,13 +132,13 @@ export default {
         this.sortedProducts = this.PRODUCTS
       }
     }
-    // productClick (article) {
-    //   this.$router.push({ name: 'catalog_item_page', query: { product: article } })
-    // }
   },
   watch: {
     SEARCH_VALUE () {
       this.sortedProductsBySearchValue(this.SEARCH_VALUE)
+    },
+    value () {
+      this.sortByCategories()
     }
   },
   created () {
@@ -151,10 +154,15 @@ export default {
 </script>
 
 <style scoped>
-@import '../assets/styles/range_slider.css';
+/* @import '../assets/styles/range_slider.css'; */
   .filters {
     display: flex;
     justify-content: space-around;
     align-items: center;
+  }
+
+  .slider {
+    padding:40px 15px;
+    width: 300px;
   }
 </style>

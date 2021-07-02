@@ -1,7 +1,6 @@
 const test = function magnify (imgID, zoom) {
   var img, glass, w, h, bw
   img = document.getElementById(imgID)
-  console.log(img)
 
   /* Create magnifier glass: */
   glass = document.createElement('DIV')
