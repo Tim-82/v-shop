@@ -26,16 +26,6 @@
           </div>
         </div>
       </nav>
-
-      <!-- <div class="search-field">
-        <input type="text" v-model="searchValue">
-        <button class="search_btn">
-          <i class="fas fa-search fa-1x" @click="search"></i>
-        </button>
-        <button class="search_btn">
-          <i class="fas fa-times fa-1x" @click="clearSearchField"></i>
-        </button>
-      </div> -->
     </header>
   </div>
 </template>
@@ -63,23 +53,10 @@ export default {
     ...mapActions([
       'SET_SEARCH_VALUE'
     ])
-    // search () {
-    //   this.SET_SEARCH_VALUE(this.searchValue)
-    //   if (this.$route.path !== '/catalog') {
-    //     this.$router.push('/catalog')
-    //   }
-    // },
-    // clearSearchField () {
-    //   this.searchValue = ''
-    //   this.SET_SEARCH_VALUE()
-    //   if (this.$route.path !== '/catalog') {
-    //     this.$router.push('/catalog')
-    //   }
-    // }
   },
   watch: {
     search () {
-      const v = this.search.trim().toLowerCase()
+      const v = this.search.toLowerCase()
       this.SET_SEARCH_VALUE(v)
     }
   }
@@ -96,15 +73,4 @@ export default {
     padding: 0 0.9rem 0.1rem 0.9rem;
     border-radius: 3rem;
   }
-  /* .search-field {
-    padding: 16px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  } */
-  /* .search_btn {
-    margin-left: 16px;
-    background: transparent;
-    border: none;
-  } */
 </style>

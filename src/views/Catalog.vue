@@ -90,14 +90,13 @@ export default {
         })
     },
     sortByCategories (category) {
-      const vm = this
       this.sortedProducts = [...this.PRODUCTS]
-      this.sortedProducts = this.sortedProducts.filter(function (item) {
-        return item.price >= vm.value[0] && item.price <= vm.value[1]
+      this.sortedProducts = this.sortedProducts.filter((item) => {
+        return item.price >= this.value[0] && item.price <= this.value[1]
       })
       if (category) {
-        this.sortedProducts = this.sortedProducts.filter(function (item) {
-          vm.selected = category.name
+        this.sortedProducts = this.sortedProducts.filter((item) => {
+          this.selected = category.name
           return item.category === category.name
         })
       }

@@ -1,7 +1,7 @@
 <template>
   <div v-if="this.$route.path !== '/'">
       <!-- Search input -->
-    <input type="text" :placeholder="placeholder" v-model="search"/>
+    <input type="text" :placeholder="placeholder" v-model.trim ="search"/>
   </div>
 </template>
 
