@@ -16,6 +16,7 @@ Used technologies | Description |
 [Vue-Slider](https://nightcatsama.github.io/vue-slider-component/#/) | A highly customized slider component
 [Localbase](https://github.com/dannyconnell/localbase) | A Firebase-Style Database ... Offline!
 [Font Awesome](https://fontawesome.com/) | The internet's most popular icon toolkit
+[Lodash](https://lodash.com/) | A modern JavaScript utility library delivering modularity, performance & extras
 
 ## Project setup
 ```
