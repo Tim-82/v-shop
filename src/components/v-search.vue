@@ -20,12 +20,28 @@ export default {
   data () {
     return { search: this.value }
   },
+  computed: {
+    searchValue () {
+      return this.$store.state.searchValue
+    }
+  },
   watch: {
-    search (val) {
-      // console.log(val)
-      this.$emit('search', val)
+    search (value) {
+      this.$emit('search', value)
+    },
+
+    searchValue () {
+      if (this.searchValue === '') {
+        this.clearInput()
+      }
+    }
+  },
+  methods: {
+    clearInput () {
+      this.search = ''
     }
   }
+
 }
 </script>
 
