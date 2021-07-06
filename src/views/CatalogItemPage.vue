@@ -13,8 +13,8 @@
       />
       </div>
     </div>
-    <div class="product-info">
-      <p>Product name: {{product.name}}</p>
+    <div class="product-info" v-if="product">
+      <p>Product name: {{product.title}}</p>
       <p>Article: {{product.article}}</p>
       <p>Price: {{product.price | filter }}</p>
       <div>
@@ -30,32 +30,30 @@
 <script>
 import { mapActions } from 'vuex'
 import filter from '@/filters/filter'
-// import magnifier from '../mixins/magnifier'
 
 export default {
   name: 'v-product-page',
   props: {},
   data () {
     return {
-      product: null
+      test: null
     }
   },
   filters: {
     filter
   },
+  computed: {
+    product () {
+      return this.$store.getters.GET_PRODUCT(this.$route.params.id)
+    }
+  },
   methods: {
     ...mapActions([
-      // 'GET_PRODUCTS_FROM_API',
       'ADD_TO_CART'
     ]),
     addBtn () {
       this.ADD_TO_CART(this.product)
     }
-  },
-  mounted () {
-    const id = this.$route.params.id
-    this.product = this.$store.getters.GET_PRODUCT(id)
-    // magnifier('myimage', 3)
   }
 }
 </script>
@@ -85,19 +83,4 @@ export default {
   background: #DEB887;
   text-decoration: none;
 }
-
-/* .img-magnifier-container {
-  position: relative;
-} */
-
-.img-magnifier-glass {
-  position: absolute;
-  border: 3px solid #000;
-  border-radius: 50%;
-  cursor: none;
-  /*Set the size of the magnifier glass:*/
-  width: 100px;
-  height: 100px;
-}
-
 </style>

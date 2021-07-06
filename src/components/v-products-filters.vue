@@ -1,81 +1,142 @@
 <template>
-  <div class="select">
-    <p
-      class="title"
-      @click="areOptionsVisible = !areOptionsVisible"
-    >
-      {{ selected }}
-    </p>
-    <div
-      class="options"
-      v-if="areOptionsVisible"
-    >
-      <p
-        v-for="option in options"
-        :key="option.value"
-        @click="selectOption(option)"
-      >
-        {{option.name}}
-      </p>
+  <div class="filters">
+      <select v-model="filter.selectCategory" class="title">
+          <!-- <option value="0">All categories</option> -->
+          <option  v-for="category in categories" :key="category.id" :value="category.id">{{ category.section }}</option>
+      </select>
+
+    <div>
+      <input v-model.number="filter.minPrice" type="number" />
+      <input v-model.number="filter.maxPrice" type="number" />
     </div>
+
+      <select v-model="filter.selectSort">
+        <option v-for="rule in sortRules" :key="rule.key" :value="rule.key">{{ rule.title }}</option>
+      </select>
+
+    <div class="slider">
+      <VueSlider
+        v-model="filter.value"
+      />
+    </div>
+
+    <button @click="clear" class="btn">Clear</button>
   </div>
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
+import VueSlider from 'vue-slider-component'
+import 'vue-slider-component/theme/default.css'
+
 export default {
-  name: 'Select',
-  props: {
-    options: {
-      type: Array,
-      default () {
-        return []
-      }
-    },
-    selected: {
-      type: String,
-      default: ''
-    }
+  name: 'filters',
+  components: {
+    VueSlider
   },
   data () {
     return {
-      areOptionsVisible: false
+      categories: [
+        { id: 0, section: 'All categories' },
+        { id: 1, section: 'Man' },
+        { id: 2, section: 'Woman' },
+        { id: 3, section: 'Kids' }
+      ],
+      sortRules: [
+        { key: 'id:asc', title: 'By order' },
+        { key: 'rating:desc', title: 'By rating' },
+        { key: 'price:asc', title: 'By price, cheap' },
+        { key: 'price:desc', title: 'By price, expensive' }
+      ],
+      filter: {
+        inputSearch: '',
+        selectCategory: 0,
+        minPrice: 0,
+        maxPrice: 0,
+        selectSort: 'id:asc',
+        value: []
+      }
+    }
+  },
+
+  computed: {
+    ...mapGetters(['MIN_PRODUCT', 'MAX_PRODUCT', 'GET_SEARCH_VALUE']),
+
+    products () {
+      return this.$store.state.products
+    }
+  },
+  mounted () {
+    this.clear()
+  },
+  watch: {
+    filter: {
+      handler (newFilter) {
+        this.$emit('filter', newFilter)
+      },
+      deep: true
+
+    },
+    products () {
+      this.filter.minPrice = this.MIN_PRODUCT
+      this.filter.maxPrice = this.MAX_PRODUCT
+    },
+    GET_SEARCH_VALUE () {
+      this.filter.inputSearch = this.GET_SEARCH_VALUE
     }
   },
   methods: {
-    selectOption (option) {
-      this.$emit('select', option)
-      this.areOptionsVisible = false
+    clear () {
+      this.filter = {
+        inputSearch: '',
+        selectCategory: 0,
+        minPrice: this.MIN_PRODUCT,
+        maxPrice: this.MAX_PRODUCT,
+        selectSort: 'id:asc',
+        value: [0, 100]
+      }
+      this.$store.commit('CLEAR_INPUT_SEARCH')
     }
   }
+
 }
 </script>
 
-<style>
-  .select {
-    position: relative;
-    width: 200px;
-    cursor: pointer;
-    /* text-align:center ; */
+<style scoped>
+.filters {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+  select {
     margin-bottom: 5px;
-    z-index: 1;
+    width: 150px;
+    background-color: #ddd;
   }
-  .title {
-    border: solid 1px #aeaeae;
-    padding: 8px;
+
+  input {
+    width: 200 px;
+    text-align: center;
   }
-  .select p {
-    margin: 0;
+
+  .slider {
+    padding:40px 15px;
+    width: 300px;
   }
-  .options {
-    border: solid 1px #aeaeae;
-    background: #ffffff;
-    position: absolute;
-    top: 30px;
-    left: 0;
-    width: 100%;
-    padding: 8px;
+  .btn {
+  background-color: #ddd;
+  border: none;
+  color: black;
+  padding: 10px 20px;
+  text-align: center;
+  font-size: 16px;
+  margin: 4px 2px;
+  transition: 0.3s;
   }
-  .options p:hover {
-    background: #e7e7e7;
+
+  .btn:hover {
+    background-color: #1596AA;
+    color: white;
   }
+
 </style>
