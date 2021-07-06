@@ -22,6 +22,8 @@
           </div>
       </div>
     </div>
+    <h1 v-if="!filteredProducts.length" style="text-align:center;">There is nothing</h1>
+    <h1 v-if="filteredProducts[0] == 'xxxs'" style="text-align:center;">x</h1>
   </div>
 </template>
 
@@ -66,8 +68,8 @@ export default {
     },
 
     filter (filter) {
-      console.log(filter)
       this.filteredProducts = this.$store.getters.GET_PRODUCTS_BY_FILTER(filter)
+      console.log(this.filteredProducts)
     }
   },
 

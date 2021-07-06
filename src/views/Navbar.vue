@@ -9,9 +9,9 @@
         </router-link>
 
         <SEARCH
-          :value="search"
+          :value="searchData"
           placeholder="Find your shoes"
-          @search="search = $event"
+          @search="searchData = $event"
         />
 
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
@@ -41,13 +41,14 @@ export default {
   },
   data () {
     return {
-      search: ''
+      searchData: ''
     }
   },
   computed: {
     ...mapGetters([
       'CART'
     ])
+
   },
   methods: {
     ...mapActions([
@@ -55,9 +56,8 @@ export default {
     ])
   },
   watch: {
-    search () {
-      const v = this.search.toLowerCase()
-      this.SET_SEARCH_VALUE(v)
+    searchData () {
+      this.SET_SEARCH_VALUE(this.searchData)
     }
   }
 }
