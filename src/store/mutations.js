@@ -30,5 +30,8 @@ export default {
   },
   SET_SEARCH: (state, value) => {
     state.searchValue = value
+  },
+  CLEAR_INPUT_SEARCH: (state) => {
+    state.searchValue = ''
   }
 }

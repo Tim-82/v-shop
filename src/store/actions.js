@@ -42,53 +42,53 @@ const products = [
   {
     image: 'Nike_Kyrie/NK_SPONGEBOB/SPONGEBOB_1.jpeg',
     all_images: ['Nike_Kyrie/NK_SPONGEBOB/SPONGEBOB_1.jpeg', 'Nike_Kyrie/NK_SPONGEBOB/SPONGEBOB_2.jpeg', 'Nike_Kyrie/NK_SPONGEBOB/SPONGEBOB_3.jpeg'],
-    name: 'NIKE KYRIE 5 "SPONGEBOB"',
+    title: 'NIKE KYRIE 5 "SPONGEBOB"',
     info: 'Some products information',
-    price: 99.753,
+    price: 98.75,
     previous_price: 105,
     article: 'T1',
-    id: 'T1',
+    id: '2',
     available: true,
     rating: 3,
-    category: 'Woman'
+    category_id: 2
   },
   {
     image: 'Nike_Kobe/GRINCH_1.jpg',
     all_images: ['Nike_Kobe/GRINCH_1.jpg', 'Nike_Kobe/GRINCH_2.jpg', 'Nike_Kobe/GRINCH_3.jpg'],
-    name: 'NIKE KOBE 6 PROTRO "GRINCH"',
+    title: 'NIKE KOBE 6 PROTRO "GRINCH"',
     info: 'Some products information',
-    price: 80.355,
+    price: 80.35,
     previous_price: 90,
     article: 'T2',
-    id: 'T2',
+    id: '1',
     available: true,
     rating: 5,
-    category: 'Man'
+    category_id: 1
   },
   {
     image: 'Nike_Kyrie/NK_PATRICK/PATRICK_STAR_1.jpeg',
     all_images: ['Nike_Kyrie/NK_PATRICK/PATRICK_STAR_1.jpeg', 'Nike_Kyrie/NK_PATRICK/PATRICK_STAR_2.jpeg', 'Nike_Kyrie/NK_PATRICK/PATRICK_STAR_3.jpeg'],
-    name: 'NIKE KYRIE 5 "PATRICK STAR"',
+    title: 'NIKE KYRIE 5 "PATRICK STAR"',
     info: 'Some products information',
-    price: 75.1213,
+    price: 75.12,
     previous_price: 82,
     article: 'T3',
-    id: 'T3',
+    id: '4',
     available: false,
     rating: 4,
-    category: 'Woman'
+    category_id: 2
   },
   {
     image: 'Nike_Kyrie/NK_DUKE/Duke_1.jpeg',
     all_images: ['Nike_Kyrie/NK_DUKE/Duke_1.jpeg', 'Nike_Kyrie/NK_DUKE/Duke_2.jpeg', 'Nike_Kyrie/NK_DUKE/Duke_3.jpeg'],
-    name: 'NIKE KYRIE 5 "DUKE BLUE DEVILS"',
+    title: 'NIKE KYRIE 5 "DUKE BLUE DEVILS"',
     info: 'Some products information',
-    price: 65.6345,
+    price: 65.63,
     previous_price: 72,
     article: 'T4',
-    id: 'T4',
+    id: '3',
     available: true,
     rating: 5,
-    category: 'Man'
+    category_id: 1
   }
 ]
