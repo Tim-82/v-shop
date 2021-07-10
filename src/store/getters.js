@@ -26,6 +26,9 @@ export default {
       ? maxBy(state.products, 'price').price
       : 0
   },
+  CLEAR_VALUE: (state) => {
+    return state.clearValue
+  },
 
   GET_PRODUCTS_BY_FILTER: state => filter => {
     // Фильтруем товары

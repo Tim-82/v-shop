@@ -20,8 +20,13 @@ export default {
   data () {
     return { search: this.value }
   },
+  // computed: {
+  //   searchValue () {
+  //     return this.$store.state.searchValue
+  //   }
+  // },
   computed: {
-    searchValue () {
+    clear () {
       return this.$store.state.searchValue
     }
   },
@@ -29,9 +34,8 @@ export default {
     search (value) {
       this.$emit('search', value)
     },
-
-    searchValue () {
-      if (this.searchValue === '') {
+    clear () {
+      if (!this.clear) {
         this.clearInput()
       }
     }

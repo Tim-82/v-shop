@@ -95,7 +95,10 @@ export default {
         selectSort: 'id:asc',
         value: [0, 100]
       }
-      this.$store.commit('CLEAR_INPUT_SEARCH')
+      if (this.GET_SEARCH_VALUE) {
+        // this.$store.commit('CLEAR_INPUT_SEARCH')
+        this.$store.dispatch('SET_SEARCH_VALUE', '')
+      }
     }
   }
 
