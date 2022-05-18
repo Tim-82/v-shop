@@ -69,7 +69,7 @@ export default {
 
     filter (filter) {
       this.filteredProducts = this.$store.getters.GET_PRODUCTS_BY_FILTER(filter)
-      console.log(this.filteredProducts)
+      // console.log(this.filteredProducts)
     }
   },
 

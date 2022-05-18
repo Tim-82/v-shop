@@ -2,7 +2,9 @@
   <div id="app">
     <Navbar/>
     <!-- <keep-alive> -->
+    <transition name="fade" mode="out-in">
       <router-view />
+    </transition >
     <!-- </keep-alive> -->
   </div>
 </template>
@@ -20,4 +22,16 @@ export default {
 </script>
 
 <style>
+.fade-enter {
+  opacity: 0;
+}
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.3s ease-out;
+}
+
+.fade-leave-to {
+  opacity: 0;
+}
 </style>

@@ -13,7 +13,7 @@ export default {
     return state.searchValue
   },
   GET_PRODUCT: (state) => (id) => {
-    console.log(id)
+    // console.log(id)
     return state.products.find(product => product.article === id)
   },
   MIN_PRODUCT: (state) => {
@@ -31,8 +31,11 @@ export default {
   },
 
   GET_PRODUCTS_BY_FILTER: state => filter => {
+    console.log(filter)
+
     // Фильтруем товары
     const filtered = state.products
+
     // По категории
       .filter(product => {
         return filter.selectCategory === 0 || product.category_id === filter.selectCategory

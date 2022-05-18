@@ -1,18 +1,18 @@
 <template>
   <div class="filters">
-      <select v-model="filter.selectCategory" class="title">
-          <!-- <option value="0">All categories</option> -->
-          <option  v-for="category in categories" :key="category.id" :value="category.id">{{ category.section }}</option>
-      </select>
+    <select v-model="filter.selectCategory" class="title">
+      <!-- <option value="0">All categories</option> -->
+      <option  v-for="category in categories" :key="category.id" :value="category.id">{{ category.section }}</option>
+    </select>
 
     <div>
       <input v-model.number="filter.minPrice" type="number" />
       <input v-model.number="filter.maxPrice" type="number" />
     </div>
 
-      <select v-model="filter.selectSort">
-        <option v-for="rule in sortRules" :key="rule.key" :value="rule.key">{{ rule.title }}</option>
-      </select>
+    <select v-model="filter.selectSort">
+      <option v-for="rule in sortRules" :key="rule.key" :value="rule.key">{{ rule.title }}</option>
+    </select>
 
     <div class="slider">
       <VueSlider
