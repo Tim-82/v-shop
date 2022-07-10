@@ -50,7 +50,9 @@ const products = [
     id: '2',
     available: true,
     rating: 3,
-    category_id: 2
+    category_id: 2,
+    bgtext: 'NIKE',
+    color: 'green'
   },
   {
     image: 'Nike_Kobe/GRINCH_1.jpg',
@@ -63,7 +65,9 @@ const products = [
     id: '1',
     available: true,
     rating: 5,
-    category_id: 1
+    category_id: 1,
+    color: 'blue',
+    bgtext: 'AIR'
   },
   {
     image: 'Nike_Kyrie/NK_PATRICK/PATRICK_STAR_1.jpeg',
@@ -76,7 +80,9 @@ const products = [
     id: '4',
     available: false,
     rating: 4,
-    category_id: 2
+    category_id: 2,
+    color: 'pink',
+    bgtext: 'MAX'
   },
   {
     image: 'Nike_Kyrie/NK_DUKE/Duke_1.jpeg',
@@ -89,6 +95,8 @@ const products = [
     id: '3',
     available: true,
     rating: 5,
-    category_id: 1
+    category_id: 1,
+    color: 'yellow',
+    bgtext: 'SHOP'
   }
 ]
