@@ -1,5 +1,5 @@
 <template>
-  <div @mousemove="mousemove">
+  <div >
     <Notification
       :messages="messages"
     />
@@ -9,7 +9,7 @@
       />
     </div>
 
-    <div class="container">
+    <div class="container" @mousemove="mousemove">
       <div class="row text-center py-5 products">
           <div class="col-md-3 col-sm-6 my-3 my-md-0"
             v-for="product in filteredProducts"

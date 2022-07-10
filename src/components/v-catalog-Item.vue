@@ -8,7 +8,7 @@
     :name="product_data.name"
     :all_images="product_data.all_images"
   />
-    <div class="card shadow mb-3">
+    <div class="card shadow mb-3 product">
       <div :class="'product-inner ' + product_data.color">
         <div class="product-text-wrap">
           <h2 class="bg-text">{{ product_data.bgtext }}</h2>
