@@ -9,9 +9,16 @@
     :all_images="product_data.all_images"
   />
     <div class="card shadow mb-3">
-      <router-link :to="{name:'catalog_item_page', params: {id: product_data.article}}">
-        <img  :src="require(`@/assets/images/shoes/${product_data.image}`) " alt="image" class="img-fluid card-img-top">
-      </router-link>
+      <div :class="'product-inner ' + product_data.color">
+        <div class="product-text-wrap">
+          <h2 class="bg-text">{{ product_data.bgtext }}</h2>
+        </div>
+        <div class="product-image-wrap">
+          <router-link :to="{name:'catalog_item_page', params: {id: product_data.article}}">
+            <img  :src="require(`@/assets/images/shoes/${product_data.image}`) " alt="image" class="img-fluid card-img-top">
+          </router-link>
+        </div>
+      </div>
       <div class="card-body">
         <h5 class="card-title">{{ product_data.name }}</h5>
         <h6>
@@ -106,4 +113,42 @@ img {
     color: yellowgreen;
     padding: 3%;
   }
+
+  .product-inner.green {
+      background-image: linear-gradient(0deg, #08AEEA 0%, #2AF598 100%);
+    }
+  .product-inner.blue {
+    background-image: linear-gradient(160deg, #0093E9 0%, #80D0C7 100%);
+  }
+  .product-inner.pink {
+    background-image: linear-gradient(62deg, #8EC5FC 0%, #E0C3FC 100%);
+  }
+  .product-inner.yellow {
+    background-image: linear-gradient(45deg, #85FFBD 0%, #FFFB7D 100%);
+  }
+
+  .product-text-wrap {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 0;
+    overflow: hidden;
+    perspective: 1000px;
+  }
+  .product-text-wrap h2 {
+    color: #313131;
+    font-size: 78px;
+    font-weight: 900;
+    opacity: 0.2;
+    transform-origin: center;
+  }
+
+  .product-image-wrap {
+    position: relative;
+    z-index: 1;
+    /* transform-origin: center; */
+  }
+
 </style>

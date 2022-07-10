@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div @mousemove="mousemove">
     <Notification
       :messages="messages"
     />
@@ -10,7 +10,7 @@
     </div>
 
     <div class="container">
-      <div class="row text-center py-5">
+      <div class="row text-center py-5 products">
           <div class="col-md-3 col-sm-6 my-3 my-md-0"
             v-for="product in filteredProducts"
             :key="product.article"
@@ -70,7 +70,38 @@ export default {
     filter (filter) {
       this.filteredProducts = this.$store.getters.GET_PRODUCTS_BY_FILTER(filter)
       // console.log(this.filteredProducts)
+    },
+
+    mousemove (e) {
+      const mouseX = e.clientX
+      const mouseY = e.clientY
+
+      const products = document.querySelectorAll('.product')
+
+      for (let i = 0; i < products.length; i++) {
+        const product = products[i]
+
+        const productImage = product.querySelector('.product-image-wrap')
+
+        const imgX = mouseX - this.coords(productImage).x
+        const imgY = mouseY - this.coords(productImage).y
+        productImage.style.transform = `translateY(-${imgY / 40}px) translateX(-${imgX / 40}px) translateZ(100px)`
+
+        const bgtext = product.querySelector('.bg-text')
+        const bgX = mouseX - this.coords(bgtext).x
+        const bgY = mouseY - this.coords(bgtext).y
+        bgtext.style.transform = `translateX(${bgX / 25}px) translateX(-${bgY / 25}px)`
+      }
+    },
+    coords (el) {
+      const coords = el.getBoundingClientRect()
+
+      return {
+        x: coords.left / 2,
+        y: coords.top / 2
+      }
     }
+
   },
 
   created () {

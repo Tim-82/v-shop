@@ -40,7 +40,7 @@ export default {
 
 const products = [
   {
-    image: 'Nike_Kyrie/NK_SPONGEBOB/SPONGEBOB_1.jpeg',
+    image: 'Nike_Kyrie/NK_SPONGEBOB/SPONGEBOB_1.png',
     all_images: ['Nike_Kyrie/NK_SPONGEBOB/SPONGEBOB_1.jpeg', 'Nike_Kyrie/NK_SPONGEBOB/SPONGEBOB_2.jpeg', 'Nike_Kyrie/NK_SPONGEBOB/SPONGEBOB_3.jpeg'],
     title: 'NIKE KYRIE 5 "SPONGEBOB"',
     info: 'Some products information',
@@ -51,11 +51,11 @@ const products = [
     available: true,
     rating: 3,
     category_id: 2,
-    bgtext: 'NIKE',
-    color: 'green'
+    bgtext: 'AIR',
+    color: 'yellow'
   },
   {
-    image: 'Nike_Kobe/GRINCH_1.jpg',
+    image: 'Nike_Kobe/GRINCH_1.png',
     all_images: ['Nike_Kobe/GRINCH_1.jpg', 'Nike_Kobe/GRINCH_2.jpg', 'Nike_Kobe/GRINCH_3.jpg'],
     title: 'NIKE KOBE 6 PROTRO "GRINCH"',
     info: 'Some products information',
@@ -66,11 +66,12 @@ const products = [
     available: true,
     rating: 5,
     category_id: 1,
-    color: 'blue',
-    bgtext: 'AIR'
+    color: 'green',
+    bgtext: 'NIKE'
+
   },
   {
-    image: 'Nike_Kyrie/NK_PATRICK/PATRICK_STAR_1.jpeg',
+    image: 'Nike_Kyrie/NK_PATRICK/PATRICK_STAR_1.png',
     all_images: ['Nike_Kyrie/NK_PATRICK/PATRICK_STAR_1.jpeg', 'Nike_Kyrie/NK_PATRICK/PATRICK_STAR_2.jpeg', 'Nike_Kyrie/NK_PATRICK/PATRICK_STAR_3.jpeg'],
     title: 'NIKE KYRIE 5 "PATRICK STAR"',
     info: 'Some products information',
@@ -82,10 +83,10 @@ const products = [
     rating: 4,
     category_id: 2,
     color: 'pink',
-    bgtext: 'MAX'
+    bgtext: 'SHOP'
   },
   {
-    image: 'Nike_Kyrie/NK_DUKE/Duke_1.jpeg',
+    image: 'Nike_Kyrie/NK_DUKE/Duke_1.png',
     all_images: ['Nike_Kyrie/NK_DUKE/Duke_1.jpeg', 'Nike_Kyrie/NK_DUKE/Duke_2.jpeg', 'Nike_Kyrie/NK_DUKE/Duke_3.jpeg'],
     title: 'NIKE KYRIE 5 "DUKE BLUE DEVILS"',
     info: 'Some products information',
@@ -96,7 +97,7 @@ const products = [
     available: true,
     rating: 5,
     category_id: 1,
-    color: 'yellow',
-    bgtext: 'SHOP'
+    color: 'blue',
+    bgtext: 'MAX'
   }
 ]
