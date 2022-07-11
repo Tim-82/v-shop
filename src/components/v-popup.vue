@@ -93,7 +93,7 @@ export default {
   background: #f1f1f1;
   border: 1px solid #333 ;
   position: absolute;
-  z-index: 1;
+  z-index: 2;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);

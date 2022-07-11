@@ -20,7 +20,7 @@
         </div>
       </div>
       <div class="card-body">
-        <h5 class="card-title">{{ product_data.name }}</h5>
+        <h5 class="card-title">{{ product_data.title }}</h5>
         <h6>
           <i class="far fa-star"
             v-for="star in 5"
@@ -129,6 +129,7 @@ img {
 
   .product-text-wrap {
     position: absolute;
+    height: 40%;
     top: 0;
     left: 0;
     right: 0;
@@ -139,7 +140,7 @@ img {
   }
   .product-text-wrap h2 {
     color: #313131;
-    font-size: 78px;
+    font-size: 68px;
     font-weight: 900;
     opacity: 0.2;
     transform-origin: center;
@@ -148,7 +149,7 @@ img {
   .product-image-wrap {
     position: relative;
     z-index: 1;
-    /* transform-origin: center; */
+    transform-origin: center;
   }
 
 </style>
