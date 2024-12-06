@@ -5,7 +5,7 @@
 ![2_cut-photo ru](https://user-images.githubusercontent.com/56195913/95024035-3dad8400-0689-11eb-8709-f9924965f3f0.png)
 
 
-🆈🅾🆄 🅲🅰🅽 🆃🆁🆈 🅸🆃 🅷🅴🆁🅴  https://mystifying-hoover-1e4d0c.netlify.app/
+🆈🅾🆄 🅲🅰🅽 🆃🆁🆈 🅸🆃 🅷🅴🆁🅴  https://v-shop-app-18bdf.web.app/
 
 
 🆆🅷🅰🆃 🅸 🆄🆂🅴🅳 ❓
